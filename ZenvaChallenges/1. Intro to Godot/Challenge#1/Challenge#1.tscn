@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://b27dxn685kmmt"]
+
+[ext_resource type="Texture2D" uid="uid://byn4x7kawvhor" path="res://ZenvaChallenges/1. Intro to Godot/Challenge#1/Reference.png" id="1_pkpfb"]
+[ext_resource type="PackedScene" uid="uid://600gvywsyxi1" path="res://Assets/Scenes/2D/coin.tscn" id="2_58esr"]
+
+[node name="ZenvaChallenge#1" type="Node2D"]
+
+[node name="Reference" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.25098)
+position = Vector2(287, 148)
+texture = ExtResource("1_pkpfb")
+
+[node name="Coins" type="Node2D" parent="."]
+position = Vector2(567, 332)
+
+[node name="Coin2" parent="Coins" instance=ExtResource("2_58esr")]
+position = Vector2(0, -100)
+scale = Vector2(4, 4)
+
+[node name="Coin3" parent="Coins" instance=ExtResource("2_58esr")]
+position = Vector2(0, 100)
+scale = Vector2(4, 4)
+
+[node name="Coin" parent="Coins" instance=ExtResource("2_58esr")]
+position = Vector2(75, 0)
+scale = Vector2(2, 2)
+
+[node name="Coin4" parent="Coins" instance=ExtResource("2_58esr")]
+position = Vector2(-75, 0)
+scale = Vector2(2, 2)
+
+[node name="Coin5" parent="Coins" instance=ExtResource("2_58esr")]
+position = Vector2(200, 0)
+rotation = 0.785398
+scale = Vector2(4, 4)
+
+[node name="Coin6" parent="Coins" instance=ExtResource("2_58esr")]
+position = Vector2(-200, 0)
+rotation = 0.785398
+scale = Vector2(4, 4)

@@ -1,0 +1,40 @@
+[gd_scene load_steps=8 format=3 uid="uid://x10jivn0uayt"]
+
+[ext_resource type="PackedScene" uid="uid://sgcu7sixu12f" path="res://Assets/Scenes/3D/Snowball.tscn" id="1_04yne"]
+[ext_resource type="Material" uid="uid://bmhsp22w3ttc5" path="res://Assets/Materials/transparent_blue.tres" id="2_qjnwe"]
+[ext_resource type="Material" uid="uid://cdx4mcubkrk38" path="res://Assets/Materials/transparent_blue_texture.tres" id="3_2uwuf"]
+[ext_resource type="Material" uid="uid://b41a4j5n21s0h" path="res://Assets/Materials/rough_pink.tres" id="4_ft516"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_22of8"]
+radius = 1.0
+height = 2.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_px6yb"]
+radius = 0.75
+height = 1.5
+
+[sub_resource type="BoxMesh" id="BoxMesh_wb7x6"]
+size = Vector3(2.5, 0.2, 0.2)
+
+[node name="Snowman" type="Node3D"]
+
+[node name="Snowball_base" parent="." instance=ExtResource("1_04yne")]
+material_override = ExtResource("2_qjnwe")
+mesh = SubResource("SphereMesh_22of8")
+skeleton = NodePath("../..")
+
+[node name="Snowball_mid" parent="." instance=ExtResource("1_04yne")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.44992, 0)
+material_override = ExtResource("2_qjnwe")
+mesh = SubResource("SphereMesh_px6yb")
+skeleton = NodePath("../..")
+
+[node name="Snowball_top" parent="." instance=ExtResource("1_04yne")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00313807, 2.48702, 0.00524282)
+material_override = ExtResource("3_2uwuf")
+skeleton = NodePath("../..")
+
+[node name="arms" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+material_override = ExtResource("4_ft516")
+mesh = SubResource("BoxMesh_wb7x6")

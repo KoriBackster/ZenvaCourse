@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dgvt4v2hyxly5"]
+
+[resource]
+albedo_color = Color(0.230105, 0.726374, 3.85046e-07, 1)
+metallic_specular = 0.9
+roughness = 0.73
+subsurf_scatter_enabled = true
+subsurf_scatter_strength = 0.7
+subsurf_scatter_skin_mode = true
+refraction_enabled = true

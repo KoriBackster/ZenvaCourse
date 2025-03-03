@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cumkx6g8dq7gf"]
+
+[ext_resource type="Script" uid="uid://bjf4lm1hgok2l" path="res://ZenvaChallenges/2. Mini-Projects/Balloon Popper/3D/Scripts/balloon_manager.gd" id="1_fhidw"]
+[ext_resource type="PackedScene" uid="uid://cw1nmc3tjgdf8" path="res://ZenvaChallenges/2. Mini-Projects/Balloon Popper/3D/Scenes/balloon.tscn" id="2_nvsiv"]
+
+[node name="Balloon Manager" type="Node3D"]
+script = ExtResource("1_fhidw")
+max_balloons = 3
+balloon_scene = ExtResource("2_nvsiv")
+
+[node name="Delay" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Delay" to="." method="_on_delay_timeout"]

@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://cw1nmc3tjgdf8"]
+
+[ext_resource type="Script" uid="uid://clnil8iogqtgk" path="res://ZenvaChallenges/2. Mini-Projects/Balloon Popper/3D/Scripts/balloon.gd" id="1_cc6u6"]
+[ext_resource type="Material" uid="uid://bmhsp22w3ttc5" path="res://Assets/Materials/transparent_blue.tres" id="2_vubx6"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_6x5n5"]
+material = ExtResource("2_vubx6")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_rgvm1"]
+
+[node name="Balloon" type="Area3D"]
+script = ExtResource("1_cc6u6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_6x5n5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_rgvm1")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.3
+autostart = true
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

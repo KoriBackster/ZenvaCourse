@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cj4qo8divxqh8"]
+
+[ext_resource type="PackedScene" uid="uid://unu0ajwldxx" path="res://ZenvaChallenges/2. Mini-Projects/Balloon Popper/2D/Scenes/balloon_manager.tscn" id="1_2kme8"]
+[ext_resource type="Script" uid="uid://c0tmfi1ok20oa" path="res://ZenvaChallenges/2. Mini-Projects/Balloon Popper/2D/Scripts/score_manager.gd" id="2_u1htg"]
+
+[node name="BalloonPopper" type="Node2D"]
+
+[node name="Balloon Manager" parent="." instance=ExtResource("1_2kme8")]
+
+[node name="Score Tracker" type="Node2D" parent="."]
+script = ExtResource("2_u1htg")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[connection signal="pop" from="Balloon Manager" to="Score Tracker" method="_on_balloon_manager_pop"]
+[connection signal="level_up" from="Score Tracker" to="Balloon Manager" method="_on_score_tracker_level_up"]

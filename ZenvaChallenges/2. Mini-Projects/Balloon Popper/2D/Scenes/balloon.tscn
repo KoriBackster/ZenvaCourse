@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://cxbrx5bxe0aeu"]
+
+[ext_resource type="Script" uid="uid://bvjw7smeied3y" path="res://ZenvaChallenges/2. Mini-Projects/Balloon Popper/2D/Scripts/balloon.gd" id="1_bic20"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yud5j"]
+albedo_color = Color(0.945098, 0, 1, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_tpxgt"]
+material = SubResource("StandardMaterial3D_yud5j")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wckbi"]
+
+[node name="Balloon" type="Area2D"]
+script = ExtResource("1_bic20")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+position = Vector2(0, 2.86102e-06)
+scale = Vector2(20.0227, 20.0227)
+mesh = SubResource("SphereMesh_tpxgt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_wckbi")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

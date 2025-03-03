@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://bg8dw6vcxlaey"]
+
+[ext_resource type="Material" uid="uid://bgcxxhtob663u" path="res://Assets/Scenes/3D/Local/materials/wood.tres" id="1_utaao"]
+[ext_resource type="Material" uid="uid://b75i32l4vfae6" path="res://Assets/Scenes/3D/Local/materials/metal.tres" id="2_xfafd"]
+
+[node name="Lightpole" type="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 3.5, 1.1)
+
+[node name="pole" type="CSGCylinder3D" parent="."]
+radius = 0.1
+height = 6.0
+material = ExtResource("1_utaao")
+
+[node name="pole2" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+radius = 0.1
+height = 6.0
+material = ExtResource("1_utaao")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 2, 0)
+size = Vector3(2.6, 1, 0.1)
+material = ExtResource("2_xfafd")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 2, 0)
+operation = 2
+size = Vector3(2.6, 0.6, 0.1)
+material = ExtResource("2_xfafd")

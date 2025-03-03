@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://co7spiiacyx0d"]
+
+[ext_resource type="Script" uid="uid://cbdi3fb2e1ta2" path="res://test_scene.gd" id="1_w4n7u"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_bbcnc"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_jb0ek"]
+sky_material = SubResource("ProceduralSkyMaterial_bbcnc")
+
+[sub_resource type="Environment" id="Environment_2yx0t"]
+background_mode = 2
+sky = SubResource("Sky_jb0ek")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="TestGame3D" type="Node3D"]
+script = ExtResource("1_w4n7u")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_2yx0t")

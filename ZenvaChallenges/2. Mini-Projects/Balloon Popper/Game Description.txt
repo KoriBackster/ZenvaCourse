@@ -1,0 +1,6 @@
+Game Description:
+Balloon Poppers
+
+1. "Balloons" that grow in size when clicked, then "Pop" once theyve gotten too large
+
+2. Scoring system with UI

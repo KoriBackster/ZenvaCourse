@@ -1,0 +1,23 @@
+extends Node2D
+
+var balloon_scene = preload("res://ZenvaChallenges/2. Mini-Projects/Balloon Popper/Scenes/balloon.tscn")
+
+var balloons = []
+
+@export var max_balloons = 10
+func _ready():
+	for i in range(max_balloons):
+		spawn_balloon()
+
+func _process(delta):
+	for balloon in balloons:
+		if balloon.scale.x > 2:
+			balloon.queue_free()
+			balloons.erase(balloon)
+			spawn_balloon()
+
+func spawn_balloon():
+	var balloon = balloon_scene.instantiate()
+	balloon.position = Vector2(randi() % 800, randi() % 600)
+	add_child(balloon)
+	balloons.append(balloon)

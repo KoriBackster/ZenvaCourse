@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bmhsp22w3ttc5"]
+
+[resource]
+transparency = 1
+albedo_color = Color(0, 1, 1, 0.611765)
+clearcoat_roughness = 0.0

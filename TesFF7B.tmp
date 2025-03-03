@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://do4xjvhcmtsth"]
+
+[ext_resource type="Script" path="res://ZenvaChallenges/Challenge#8/Challenge#8.gd" id="1_gi1wo"]
+[ext_resource type="PackedScene" uid="uid://dy6na2wtimfj" path="res://Assets/Scenes/player.tscn" id="2_ciamx"]
+[ext_resource type="PackedScene" uid="uid://600gvywsyxi1" path="res://Assets/Scenes/coin.tscn" id="3_whnth"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_gi1wo")
+
+[node name="Player" parent="." instance=ExtResource("2_ciamx")]
+
+[node name="Coin" parent="." instance=ExtResource("3_whnth")]
+position = Vector2(249, 199)
+
+[node name="Coin2" parent="." instance=ExtResource("3_whnth")]
+position = Vector2(102, 320)
+
+[node name="Coin3" parent="." instance=ExtResource("3_whnth")]
+position = Vector2(292, 71)
+
+[node name="Coin4" parent="." instance=ExtResource("3_whnth")]
+position = Vector2(242, 430)
+
+[node name="Coin5" parent="." instance=ExtResource("3_whnth")]
+position = Vector2(476, 307)
+
+[node name="Coin6" parent="." instance=ExtResource("3_whnth")]
+position = Vector2(524, 113)
+
+[node name="Coin7" parent="." instance=ExtResource("3_whnth")]
+position = Vector2(449, 534)
+
+[node name="Coin8" parent="." instance=ExtResource("3_whnth")]
+position = Vector2(733, 451)
+
+[node name="Coin9" parent="." instance=ExtResource("3_whnth")]
+position = Vector2(789, 256)
+
+[node name="Coin10" parent="." instance=ExtResource("3_whnth")]
+position = Vector2(982, 416)
+
+[connection signal="area_entered" from="Coin" to="Player" method="_on_coin_area_entered"]

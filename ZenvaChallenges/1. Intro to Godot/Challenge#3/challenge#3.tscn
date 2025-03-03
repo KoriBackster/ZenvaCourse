@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://ba7k7rqdrxjvf"]
+
+[ext_resource type="PackedScene" uid="uid://sgcu7sixu12f" path="res://Assets/Scenes/3D/Snowball.tscn" id="1_njtmw"]
+[ext_resource type="Material" uid="uid://b41a4j5n21s0h" path="res://Assets/Materials/rough_pink.tres" id="2_a12ak"]
+[ext_resource type="Material" uid="uid://bmhsp22w3ttc5" path="res://Assets/Materials/transparent_blue.tres" id="3_jncs8"]
+[ext_resource type="Material" uid="uid://dc61div2d0yie" path="res://Assets/Materials/player_texture.tres" id="4_jd0pa"]
+
+[node name="Challenge#3" type="Node3D"]
+
+[node name="Balls" type="Node3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+
+[node name="Snowball" parent="Balls" instance=ExtResource("1_njtmw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 0)
+material_override = ExtResource("2_a12ak")
+skeleton = NodePath("../..")
+
+[node name="Snowball2" parent="Balls" instance=ExtResource("1_njtmw")]
+material_override = ExtResource("3_jncs8")
+skeleton = NodePath("../..")
+
+[node name="Snowball3" parent="Balls" instance=ExtResource("1_njtmw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.49097, 0, -0.000299454)
+material_override = ExtResource("4_jd0pa")
+skeleton = NodePath("../..")

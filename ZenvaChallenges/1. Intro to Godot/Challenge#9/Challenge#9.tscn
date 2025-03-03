@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://dfyiwrod344hb"]
+
+[ext_resource type="Script" uid="uid://3vtk348bpuv0" path="res://ZenvaChallenges/1. Intro to Godot/Challenge#8/Challenge#8.gd" id="1_0poqf"]
+[ext_resource type="PackedScene" uid="uid://domvgbcg87te3" path="res://Assets/Scenes/2D/playerClass.tscn" id="3_coeky"]
+[ext_resource type="PackedScene" uid="uid://600gvywsyxi1" path="res://Assets/Scenes/2D/coin.tscn" id="3_ug75j"]
+
+[node name="CoinCollectorLevel" type="Node2D"]
+script = ExtResource("1_0poqf")
+
+[node name="PlayerClass" parent="." instance=ExtResource("3_coeky")]
+position = Vector2(516, -539)
+
+[node name="Coins" type="Node2D" parent="."]
+
+[node name="Coin" parent="Coins" instance=ExtResource("3_ug75j")]
+position = Vector2(249, 199)
+
+[node name="Coin2" parent="Coins" instance=ExtResource("3_ug75j")]
+position = Vector2(102, 320)
+
+[node name="Coin3" parent="Coins" instance=ExtResource("3_ug75j")]
+position = Vector2(292, 71)
+
+[node name="Coin4" parent="Coins" instance=ExtResource("3_ug75j")]
+position = Vector2(242, 430)
+
+[node name="Coin5" parent="Coins" instance=ExtResource("3_ug75j")]
+position = Vector2(476, 307)
+
+[node name="Coin6" parent="Coins" instance=ExtResource("3_ug75j")]
+position = Vector2(524, 113)
+
+[node name="Coin7" parent="Coins" instance=ExtResource("3_ug75j")]
+position = Vector2(449, 534)
+
+[node name="Coin8" parent="Coins" instance=ExtResource("3_ug75j")]
+position = Vector2(733, 451)
+
+[node name="Coin9" parent="Coins" instance=ExtResource("3_ug75j")]
+position = Vector2(789, 256)
+
+[node name="Coin10" parent="Coins" instance=ExtResource("3_ug75j")]
+position = Vector2(982, 416)

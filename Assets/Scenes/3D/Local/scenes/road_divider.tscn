@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dacawve56f8y8"]
+
+[ext_resource type="Material" uid="uid://cm15ekuq0et5d" path="res://Assets/Scenes/3D/Local/materials/yellow.tres" id="1_bwh4m"]
+
+[node name="divider" type="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0.35, 0)
+size = Vector3(0.2, 0.1, 0.5)
+material = ExtResource("1_bwh4m")

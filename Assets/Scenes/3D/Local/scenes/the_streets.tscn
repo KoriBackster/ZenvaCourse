@@ -1,0 +1,107 @@
+[gd_scene load_steps=7 format=3 uid="uid://ca41cv4i3ghay"]
+
+[ext_resource type="Material" uid="uid://b6wuis7y3ecn7" path="res://Assets/Scenes/3D/Local/materials/grass.tres" id="1_pv5wj"]
+[ext_resource type="PackedScene" uid="uid://dacawve56f8y8" path="res://Assets/Scenes/3D/Local/scenes/road_divider.tscn" id="1_x5kx7"]
+[ext_resource type="PackedScene" uid="uid://bg8dw6vcxlaey" path="res://Assets/Scenes/3D/Local/scenes/lightpost.tscn" id="2_s07ub"]
+[ext_resource type="Material" uid="uid://4e1n8n3hr3ia" path="res://Assets/Scenes/3D/Local/materials/red_metal.tres" id="3_qjddr"]
+[ext_resource type="PackedScene" uid="uid://ccslfcj3h36on" path="res://Assets/Scenes/3D/Local/characterMedium.fbx" id="4_6jqhg"]
+[ext_resource type="Material" uid="uid://c1yxqwq8h80jk" path="res://Assets/Scenes/3D/Local/materials/rubber.tres" id="4_fduwb"]
+
+[node name="The Streets" type="Node3D"]
+
+[node name="Floor" type="CSGCombiner3D" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Floor"]
+size = Vector3(16, 1, 9)
+material = ExtResource("1_pv5wj")
+
+[node name="RoadInverse" type="CSGBox3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+operation = 2
+size = Vector3(5, 0.2, 9)
+
+[node name="Road" type="CSGCombiner3D" parent="Floor"]
+
+[node name="Pavement" type="CSGBox3D" parent="Floor/Road"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0)
+size = Vector3(5, 0.1, 9)
+material = ExtResource("4_fduwb")
+
+[node name="divider" parent="Floor/Road" instance=ExtResource("1_x5kx7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, -0.7)
+
+[node name="divider3" parent="Floor/Road" instance=ExtResource("1_x5kx7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, -4.4)
+
+[node name="divider2" parent="Floor/Road" instance=ExtResource("1_x5kx7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 3)
+
+[node name="characterMedium" parent="Floor/Road" instance=ExtResource("4_6jqhg")]
+transform = Transform3D(0.325738, 0.379335, 1.65812e-08, 0, -2.18557e-08, 0.5, 0.379335, -0.325738, -1.42385e-08, 5.14538, 0.9, 3.48133)
+
+[node name="Lightpole" parent="." instance=ExtResource("2_s07ub")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 3.5, 1.1)
+
+[node name="Lightpole2" parent="." instance=ExtResource("2_s07ub")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 3.5, -3.9)
+
+[node name="Lightpole3" parent="." instance=ExtResource("2_s07ub")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 3.5, -3.9)
+
+[node name="Lightpole4" parent="." instance=ExtResource("2_s07ub")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 3.5, 1.1)
+
+[node name="Car" type="CSGCombiner3D" parent="."]
+
+[node name="Body" type="CSGCombiner3D" parent="Car"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Car/Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1, -1)
+size = Vector3(1, 1, 2)
+material = ExtResource("3_qjddr")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Car/Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1.4, -1)
+transparency = 1.0
+cast_shadow = 0
+operation = 2
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Car/Body/CSGCombiner3D"]
+size = Vector3(1, 0.2, 2)
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Car/Body/CSGCombiner3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.5, -0.9, 1)
+polygon = PackedVector2Array(0, 0.5, 0, 1, 1, 1, 0.5, 0.5)
+
+[node name="CSGPolygon3D2" type="CSGPolygon3D" parent="Car/Body/CSGCombiner3D"]
+transform = Transform3D(8.9407e-08, 0, -1, 0, 1, 0, 1, 0, 8.9407e-08, -0.5, -0.9, -1)
+polygon = PackedVector2Array(0, 0.5, 0, 1, 0.5, 1, 0.2, 0.5)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Car/Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0.55, -1)
+operation = 2
+size = Vector3(1, 0.1, 2)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Car/Body"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -6, 0.6, -1.5)
+operation = 2
+radius = 0.2
+height = 1.0
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Car/Body"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -6, 0.6, -0.3)
+operation = 2
+radius = 0.2
+height = 1.0
+
+[node name="f_wheel" type="CSGCylinder3D" parent="Car"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -6, 0.6, -0.3)
+radius = 0.17
+height = 1.0
+material = ExtResource("4_fduwb")
+
+[node name="b_wheel" type="CSGCylinder3D" parent="Car"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -6, 0.6, -1.5)
+radius = 0.17
+height = 1.0
+material = ExtResource("4_fduwb")
