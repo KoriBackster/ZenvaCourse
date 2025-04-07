@@ -11,9 +11,9 @@ config_version=5
 [application]
 
 config/name="Zenva"
-run/main_scene="res://TestScene2D.tscn"
+run/main_scene="res://Assets/Scenes/TestScene2D.tscn"
 config/features=PackedStringArray("4.4", "Forward Plus")
-config/icon="res://Assets/Intro to Godot - Assets/Sprites/Player.png"
+config/icon="res://ZenvaChallenges/1. Intro to Godot/Intro to Godot - Assets/Sprites/Player.png"
 
 [debug]
 

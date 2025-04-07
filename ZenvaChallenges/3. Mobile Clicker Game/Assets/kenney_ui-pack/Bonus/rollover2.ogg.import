@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://k6luy1jfs72t"
+path="res://.godot/imported/rollover2.ogg-f7ef62135879080f410f44e0f1084f16.oggvorbisstr"
+
+[deps]
+
+source_file="res://ZenvaChallenges/3. Mobile Clicker Game/Assets/kenney_ui-pack/Bonus/rollover2.ogg"
+dest_files=["res://.godot/imported/rollover2.ogg-f7ef62135879080f410f44e0f1084f16.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

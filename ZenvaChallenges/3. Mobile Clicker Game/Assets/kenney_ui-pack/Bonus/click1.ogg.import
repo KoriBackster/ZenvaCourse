@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b1l52y4bb01wb"
+path="res://.godot/imported/click1.ogg-6851e24c3d75a8a1820f1e638ae08cbb.oggvorbisstr"
+
+[deps]
+
+source_file="res://ZenvaChallenges/3. Mobile Clicker Game/Assets/kenney_ui-pack/Bonus/click1.ogg"
+dest_files=["res://.godot/imported/click1.ogg-6851e24c3d75a8a1820f1e638ae08cbb.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

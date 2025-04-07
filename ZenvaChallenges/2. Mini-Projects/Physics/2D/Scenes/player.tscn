@@ -1,7 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://cdkopfxe2t5c5"]
 
 [ext_resource type="Script" uid="uid://hl3mjkshj1lu" path="res://ZenvaChallenges/2. Mini-Projects/Physics/2D/Scripts/player.gd" id="1_cpouk"]
-[ext_resource type="Texture2D" uid="uid://dvhu06gpk7rn7" path="res://Assets/Godot Mini-Projects - Assets/Physics Project/PhysicsCharacter.png" id="1_l3cvv"]
+[ext_resource type="Texture2D" uid="uid://dvhu06gpk7rn7" path="res://ZenvaChallenges/2. Mini-Projects/Assets/Physics Project/PhysicsCharacter.png" id="1_l3cvv"]
+
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_13qiu"]
 radius = 38.0132
