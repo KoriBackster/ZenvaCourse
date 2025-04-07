@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxt0xn38v5own"]
+
+[ext_resource type="Script" uid="uid://bgw4x5yyjolhs" path="res://Loops/PracticeRun/loop_remake.gd" id="1_0ssjr"]
+[ext_resource type="PackedScene" uid="uid://iymkp3c1jq8m" path="res://Loops/PracticeRun/star.tscn" id="1_5m8q7"]
+
+[node name="LoopRemake" type="Node2D"]
+script = ExtResource("1_0ssjr")
+star_count = 5
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
+
+[node name="Star" parent="." instance=ExtResource("1_5m8q7")]
+position = Vector2(-184, -100)

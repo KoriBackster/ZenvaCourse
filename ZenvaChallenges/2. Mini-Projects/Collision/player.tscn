@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://cddcf3d66sj8"]
+
+[ext_resource type="Script" uid="uid://ck7uikikjxixr" path="res://Collision/player.gd" id="1_128ch"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ki0wb"]
+albedo_color = Color(0.972549, 0.611765, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_l3cka"]
+material = SubResource("StandardMaterial3D_ki0wb")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j6q66"]
+
+[node name="Player" type="RigidBody3D"]
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+contact_monitor = true
+max_contacts_reported = 5
+script = ExtResource("1_128ch")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_l3cka")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_j6q66")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1, -4.2)
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Timer2" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
