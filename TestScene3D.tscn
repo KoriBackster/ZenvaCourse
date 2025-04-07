@@ -1,6 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://co7spiiacyx0d"]
+[gd_scene load_steps=16 format=3 uid="uid://co7spiiacyx0d"]
 
 [ext_resource type="Script" uid="uid://cbdi3fb2e1ta2" path="res://test_scene.gd" id="1_w4n7u"]
+[ext_resource type="Texture2D" uid="uid://dvwtxfbq0lpr6" path="res://Assets/Godot Mini-Projects - Assets/Physics Project/Crate.png" id="2_8scb8"]
+[ext_resource type="Texture2D" uid="uid://dvhu06gpk7rn7" path="res://Assets/Godot Mini-Projects - Assets/Physics Project/PhysicsCharacter.png" id="3_7jqe4"]
+[ext_resource type="Script" uid="uid://bkl5t3vnqnt3s" path="res://player_2.gd" id="3_541mu"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_bbcnc"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -15,8 +18,60 @@ sky = SubResource("Sky_jb0ek")
 tonemap_mode = 2
 glow_enabled = true
 
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_541mu"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_14yne"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cynuh"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_dcx6w"]
+material = SubResource("StandardMaterial3D_cynuh")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ako2h"]
+albedo_texture = ExtResource("2_8scb8")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m1spq"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_0klhj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_83my8"]
+albedo_texture = ExtResource("3_7jqe4")
+
 [node name="TestGame3D" type="Node3D"]
 script = ExtResource("1_w4n7u")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_2yx0t")
+
+[node name="Physics" type="Node3D" parent="."]
+
+[node name="Floor" type="StaticBody3D" parent="Physics"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Physics/Floor"]
+shape = SubResource("WorldBoundaryShape3D_541mu")
+
+[node name="Box" type="RigidBody3D" parent="Physics"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.79729, 0.717728, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Physics/Box"]
+shape = SubResource("BoxShape3D_14yne")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Physics/Box"]
+mesh = SubResource("BoxMesh_dcx6w")
+surface_material_override/0 = SubResource("StandardMaterial3D_ako2h")
+
+[node name="Player-2" type="RigidBody3D" parent="Physics"]
+script = ExtResource("3_541mu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Physics/Player-2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.929642, 0)
+shape = SubResource("BoxShape3D_m1spq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Physics/Player-2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.929642, 0)
+mesh = SubResource("BoxMesh_0klhj")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_83my8")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 8.03662, 0)

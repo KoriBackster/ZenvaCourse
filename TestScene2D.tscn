@@ -1,7 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://do4xjvhcmtsth"]
 
-[ext_resource type="PackedScene" uid="uid://bh2dtjt17tca7" path="res://ZenvaChallenges/2. Mini-Projects/Physics/2D/physics.tscn" id="1_dv6ek"]
+[ext_resource type="PackedScene" uid="uid://dg7qi0q6iyita" path="res://ZenvaChallenges/2. Mini-Projects/Loops/loops_game2D.tscn" id="1_mi8hb"]
 
 [node name="TestGame2D" type="Node2D"]
 
-[node name="Physics" parent="." instance=ExtResource("1_dv6ek")]
+[node name="LoopsGame" parent="." instance=ExtResource("1_mi8hb")]

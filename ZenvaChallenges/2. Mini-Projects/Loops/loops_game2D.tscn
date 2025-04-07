@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dg7qi0q6iyita"]
+
+[ext_resource type="Script" uid="uid://88iy5tp0qkge" path="res://ZenvaChallenges/2. Mini-Projects/Loops/loops_game_2d.gd" id="1_noovp"]
+
+[node name="LoopsGame" type="Node2D"]
+script = ExtResource("1_noovp")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)

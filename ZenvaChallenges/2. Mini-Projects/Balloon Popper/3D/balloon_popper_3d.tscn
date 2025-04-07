@@ -22,10 +22,9 @@ material = ExtResource("3_aamb4")
 size = Vector3(100, 50, 1)
 
 [node name="BALLOON_POPPER_3D" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 20, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 21.5566, 39.1805)
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -63,7 +62,7 @@ script = ExtResource("1_62ufx")
 ScoreUI = NodePath("../Control/Label")
 
 [node name="Balloon Manager" parent="." instance=ExtResource("2_shwma")]
-max_balloons = 50
+max_balloons = 8
 balloon_delay = false
 
 [node name="Backdrop" type="MeshInstance3D" parent="."]
