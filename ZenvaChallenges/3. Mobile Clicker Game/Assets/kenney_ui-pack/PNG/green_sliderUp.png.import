@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://pueet2d2dira"
-path="res://.godot/imported/green_sliderUp.png-ee4f5abeb9f208321cf69075681a39be.ctex"
+path="res://.godot/imported/green_sliderUp.png-1bf9c5f0a27e1da4538aca8ce006a1e1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ZenvaChallenges/3. Mobile Clicker Game/Assets/kenney_ui-pack/PNG/green_sliderUp.png"
-dest_files=["res://.godot/imported/green_sliderUp.png-ee4f5abeb9f208321cf69075681a39be.ctex"]
+source_file="res://Assets/kenney_ui-pack/PNG/green_sliderUp.png"
+dest_files=["res://.godot/imported/green_sliderUp.png-1bf9c5f0a27e1da4538aca8ce006a1e1.ctex"]
 
 [params]
 

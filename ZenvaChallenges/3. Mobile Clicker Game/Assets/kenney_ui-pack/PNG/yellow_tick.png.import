@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bo8owmegebm0o"
-path="res://.godot/imported/yellow_tick.png-d8e2e79b5939f9fa71ad20976fb521fe.ctex"
+path="res://.godot/imported/yellow_tick.png-db02f75700c6d6245d2c96f141bbb185.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ZenvaChallenges/3. Mobile Clicker Game/Assets/kenney_ui-pack/PNG/yellow_tick.png"
-dest_files=["res://.godot/imported/yellow_tick.png-d8e2e79b5939f9fa71ad20976fb521fe.ctex"]
+source_file="res://Assets/kenney_ui-pack/PNG/yellow_tick.png"
+dest_files=["res://.godot/imported/yellow_tick.png-db02f75700c6d6245d2c96f141bbb185.ctex"]
 
 [params]
 

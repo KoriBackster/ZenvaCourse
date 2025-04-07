@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://carro3t6scp7t"
-path="res://.godot/imported/red_boxCheckmark.png-09d5e99786f80be2fb9ee8904eb1df52.ctex"
+path="res://.godot/imported/red_boxCheckmark.png-173751132be88818819afe9016974074.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ZenvaChallenges/3. Mobile Clicker Game/Assets/kenney_ui-pack/PNG/red_boxCheckmark.png"
-dest_files=["res://.godot/imported/red_boxCheckmark.png-09d5e99786f80be2fb9ee8904eb1df52.ctex"]
+source_file="res://Assets/kenney_ui-pack/PNG/red_boxCheckmark.png"
+dest_files=["res://.godot/imported/red_boxCheckmark.png-173751132be88818819afe9016974074.ctex"]
 
 [params]
 

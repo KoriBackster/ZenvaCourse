@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://didh2gu6ufqj3"
-path="res://.godot/imported/grey_boxCheckmark.png-65d6751f7d46a699dbb4ea6b54aea69b.ctex"
+path="res://.godot/imported/grey_boxCheckmark.png-1d97171f7be5741c8b4e31df21cf97be.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ZenvaChallenges/3. Mobile Clicker Game/Assets/kenney_ui-pack/PNG/grey_boxCheckmark.png"
-dest_files=["res://.godot/imported/grey_boxCheckmark.png-65d6751f7d46a699dbb4ea6b54aea69b.ctex"]
+source_file="res://Assets/kenney_ui-pack/PNG/grey_boxCheckmark.png"
+dest_files=["res://.godot/imported/grey_boxCheckmark.png-1d97171f7be5741c8b4e31df21cf97be.ctex"]
 
 [params]
 

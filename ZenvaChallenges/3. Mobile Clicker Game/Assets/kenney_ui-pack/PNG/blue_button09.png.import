@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b6l5sc2xxg1hw"
-path="res://.godot/imported/blue_button09.png-190c78648182ee91160b8a2329cafe3e.ctex"
+path="res://.godot/imported/blue_button09.png-743d4d4826dfc05d31eebb3a9a9b3da8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ZenvaChallenges/3. Mobile Clicker Game/Assets/kenney_ui-pack/PNG/blue_button09.png"
-dest_files=["res://.godot/imported/blue_button09.png-190c78648182ee91160b8a2329cafe3e.ctex"]
+source_file="res://Assets/kenney_ui-pack/PNG/blue_button09.png"
+dest_files=["res://.godot/imported/blue_button09.png-743d4d4826dfc05d31eebb3a9a9b3da8.ctex"]
 
 [params]
 

@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://cy61hmqn6bkhm"
-path="res://.godot/imported/kenvector_future.ttf-5135a41881c1af1b52978230795130b0.fontdata"
+path="res://.godot/imported/kenvector_future.ttf-88ffbc43f8ea3267bbd7dd6eb947e80a.fontdata"
 
 [deps]
 
-source_file="res://ZenvaChallenges/3. Mobile Clicker Game/Assets/kenney_ui-pack/Font/kenvector_future.ttf"
-dest_files=["res://.godot/imported/kenvector_future.ttf-5135a41881c1af1b52978230795130b0.fontdata"]
+source_file="res://Assets/kenney_ui-pack/Font/kenvector_future.ttf"
+dest_files=["res://.godot/imported/kenvector_future.ttf-88ffbc43f8ea3267bbd7dd6eb947e80a.fontdata"]
 
 [params]
 

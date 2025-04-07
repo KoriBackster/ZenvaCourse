@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://di84djxt61ajg"
-path="res://.godot/imported/green_boxCross.png-3aab9bcc0eb4e4e326f4217d37d6e03f.ctex"
+path="res://.godot/imported/green_boxCross.png-9bb01b819be929a8f507cb4def51355f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ZenvaChallenges/3. Mobile Clicker Game/Assets/kenney_ui-pack/PNG/green_boxCross.png"
-dest_files=["res://.godot/imported/green_boxCross.png-3aab9bcc0eb4e4e326f4217d37d6e03f.ctex"]
+source_file="res://Assets/kenney_ui-pack/PNG/green_boxCross.png"
+dest_files=["res://.godot/imported/green_boxCross.png-9bb01b819be929a8f507cb4def51355f.ctex"]
 
 [params]
 

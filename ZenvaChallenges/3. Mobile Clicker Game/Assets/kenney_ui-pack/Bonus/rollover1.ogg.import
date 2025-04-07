@@ -3,12 +3,12 @@
 importer="oggvorbisstr"
 type="AudioStreamOggVorbis"
 uid="uid://dvw4tejxrs731"
-path="res://.godot/imported/rollover1.ogg-fc601f9aabcab1817ceb3d8ea7f28ef8.oggvorbisstr"
+path="res://.godot/imported/rollover1.ogg-93403a99bfeb3d5628a938fac11f5696.oggvorbisstr"
 
 [deps]
 
-source_file="res://ZenvaChallenges/3. Mobile Clicker Game/Assets/kenney_ui-pack/Bonus/rollover1.ogg"
-dest_files=["res://.godot/imported/rollover1.ogg-fc601f9aabcab1817ceb3d8ea7f28ef8.oggvorbisstr"]
+source_file="res://Assets/kenney_ui-pack/Bonus/rollover1.ogg"
+dest_files=["res://.godot/imported/rollover1.ogg-93403a99bfeb3d5628a938fac11f5696.oggvorbisstr"]
 
 [params]
 
