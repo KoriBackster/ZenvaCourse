@@ -11,8 +11,15 @@ config_version=5
 [application]
 
 config/name="ZenvaMobileGame"
+run/main_scene="uid://xdvebl3gqvx2"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
+
+[display]
+
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
+window/handheld/orientation=6
 
 [rendering]
 
