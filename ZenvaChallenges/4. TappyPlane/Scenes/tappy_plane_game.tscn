@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cl5iioxhooqlv"]
+
+[ext_resource type="Texture2D" uid="uid://cs116vjtesx2p" path="res://ZenvaChallenges/4. TappyPlane/Assets-TappyPlane/Player.png" id="1_2b5xv"]
+[ext_resource type="Texture2D" uid="uid://7pvucfpagnyy" path="res://ZenvaChallenges/4. TappyPlane/Assets-TappyPlane/Background.png" id="1_swli4"]
+
+[node name="TappyPlaneGame" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(400, 240)
+texture = ExtResource("1_swli4")
+
+[node name="Player" type="Sprite2D" parent="."]
+position = Vector2(70, 117)
+texture = ExtResource("1_2b5xv")

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b5s8t3fvbw6r7"
+path="res://.godot/imported/GameOver.ogg-5a278347d3b577431422cca2029ecb16.oggvorbisstr"
+
+[deps]
+
+source_file="res://ZenvaChallenges/4. TappyPlane/Assets-TappyPlane/GameOver.ogg"
+dest_files=["res://.godot/imported/GameOver.ogg-5a278347d3b577431422cca2029ecb16.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,7 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://do4xjvhcmtsth"]
 
-[ext_resource type="PackedScene" uid="uid://dg7qi0q6iyita" path="res://ZenvaChallenges/2. Mini-Projects/Loops/loops_game2D.tscn" id="1_mi8hb"]
+[ext_resource type="PackedScene" uid="uid://cl5iioxhooqlv" path="res://ZenvaChallenges/4. TappyPlane/Scenes/tappy_plane_game.tscn" id="1_i2jms"]
 
 [node name="TestGame2D" type="Node2D"]
 
-[node name="LoopsGame" parent="." instance=ExtResource("1_mi8hb")]
+[node name="TappyPlaneGame" parent="." instance=ExtResource("1_i2jms")]

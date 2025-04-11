@@ -23,6 +23,5 @@ window/handheld/orientation=6
 
 [rendering]
 
-renderer/rendering_method="mobile"
 textures/vram_compression/import_etc2_astc=true
 environment/defaults/default_clear_color=Color(0.756863, 0.545098, 0.321569, 1)
