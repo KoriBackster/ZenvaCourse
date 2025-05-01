@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmarys28r6sdl"]
+
+[ext_resource type="Texture2D" uid="uid://bprjtrqldbmjt" path="res://ZenvaChallenges/4. TappyPlane/Assets-TappyPlane/Obstacle.png" id="1_cigm7"]
+
+[node name="Obstacle" type="Area2D" groups=["DynamicObjects", "KillZone"]]
+scale = Vector2(1.5, 1.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0.466675, 119.767)
+texture = ExtResource("1_cigm7")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(0.466675, 119.767)
+polygon = PackedVector2Array(-25, -9, -54, -118, 52, -119, 12, 128)
