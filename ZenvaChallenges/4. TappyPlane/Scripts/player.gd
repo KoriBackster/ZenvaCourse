@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-@export var impulse_force : int = 2000
+@export var impulse_force : int = 700
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed(&"Click"):

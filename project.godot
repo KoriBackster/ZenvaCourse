@@ -15,6 +15,10 @@ run/main_scene="res://Assets/Scenes/TestScene2D.tscn"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://ZenvaChallenges/1. Intro to Godot/Intro to Godot - Assets/Sprites/Player.png"
 
+[autoload]
+
+TappyPlaneGame="*res://ZenvaChallenges/4. TappyPlane/Scripts/tappy_plane_game.gd"
+
 [debug]
 
 gdscript/warnings/unused_parameter=0
@@ -31,7 +35,9 @@ naming/node_name_num_separator=3
 
 [global_group]
 
-KillZone=""
+DynamicObjects=""
+Collectables=""
+Obstacles=""
 
 [input]
 

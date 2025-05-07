@@ -25,8 +25,6 @@ normal = Vector2(0, 1)
 
 [node name="TappyPlaneGame" type="Node"]
 script = ExtResource("1_68ipj")
-dynamic_objects_speed = null
-health_decrease_speed = null
 test_mode = true
 metadata/_edit_vertical_guides_ = [-803.0]
 
