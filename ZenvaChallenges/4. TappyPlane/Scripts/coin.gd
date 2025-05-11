@@ -1,16 +1,9 @@
-extends Node2D
+extends Area2D
 
-@export var coin : PackedScene
+@onready var player = PlayerManager.player_instance
 
-
-func _on_coin_timer_timeout() -> void:
-	var coin_instance : Area2D = coin.instantiate()
-	add_child(coin_instance)
-	coin_instance.position.x = TappyPlaneGame.spawned_objects_position_x
-	coin_instance.position.y = 500
-
-func _process(delta: float) -> void:
-	for collectable in get_tree().get_nodes_in_group("Collectables"): 
-		if collectable.position.x <= -100:
-			collectable.queue_free()
-			return
+func _on_body_entered(body:Node2D) -> void:
+	if body == player:
+		queue_free()
+		
+	

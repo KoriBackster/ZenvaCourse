@@ -5,6 +5,4 @@
 [node name="TestGame2D" type="Node2D"]
 
 [node name="TappyPlaneGame" parent="." instance=ExtResource("1_i2jms")]
-dynamic_objects_speed = null
-health_decrease_speed = null
-test_mode = null
+script = null

@@ -11,13 +11,13 @@ config_version=5
 [application]
 
 config/name="Zenva"
-run/main_scene="res://Assets/Scenes/TestScene2D.tscn"
+run/main_scene="uid://cl5iioxhooqlv"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://ZenvaChallenges/1. Intro to Godot/Intro to Godot - Assets/Sprites/Player.png"
 
 [autoload]
 
-TappyPlaneGame="*res://ZenvaChallenges/4. TappyPlane/Scripts/tappy_plane_game.gd"
+PlayerManager="*res://ZenvaChallenges/4. TappyPlane/Scripts/player_manager.gd"
 
 [debug]
 
