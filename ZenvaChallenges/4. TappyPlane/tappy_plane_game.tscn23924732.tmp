@@ -1,0 +1,126 @@
+[gd_scene load_steps=16 format=3 uid="uid://cl5iioxhooqlv"]
+
+[ext_resource type="Script" uid="uid://bb0v7ff3ccgee" path="res://ZenvaChallenges/4. TappyPlane/Scripts/background.gd" id="1_fi8do"]
+[ext_resource type="Script" uid="uid://cj3ce2qxewj32" path="res://ZenvaChallenges/4. TappyPlane/Scripts/tappy_plane_game.gd" id="1_jhn4r"]
+[ext_resource type="Texture2D" uid="uid://7pvucfpagnyy" path="res://ZenvaChallenges/4. TappyPlane/Assets-TappyPlane/Background.png" id="1_swli4"]
+[ext_resource type="Script" uid="uid://d8dwscye5jgt" path="res://ZenvaChallenges/4. TappyPlane/Scripts/player_manager.gd" id="3_cwuo0"]
+[ext_resource type="PackedScene" uid="uid://c30q3eqsp7xno" path="res://ZenvaChallenges/4. TappyPlane/Scenes/coin.tscn" id="4_54k8p"]
+[ext_resource type="FontFile" uid="uid://bxtgmpckqvo85" path="res://ZenvaChallenges/4. TappyPlane/Assets-TappyPlane/kenvector_future.ttf" id="6_cxa0t"]
+[ext_resource type="PackedScene" uid="uid://bmarys28r6sdl" path="res://ZenvaChallenges/4. TappyPlane/Scenes/obstacle.tscn" id="7_anlui"]
+[ext_resource type="Script" uid="uid://m83kpee6axj6" path="res://ZenvaChallenges/4. TappyPlane/Scripts/coinManager.gd" id="7_jhn4r"]
+[ext_resource type="Script" uid="uid://tp67u6mqqayj" path="res://ZenvaChallenges/4. TappyPlane/Scripts/obstacleManager.gd" id="9_jhn4r"]
+[ext_resource type="Script" uid="uid://bdh8hiepdxy16" path="res://ZenvaChallenges/4. TappyPlane/Scripts/static_body_2d.gd" id="9_s1fyu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_54k8p"]
+bg_color = Color(0.164706, 0.164706, 0.164706, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cxa0t"]
+bg_color = Color(0.254054, 0.618108, 0.473084, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_54k8p"]
+normal = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_cxa0t"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_klvx2"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_jhn4r")
+metadata/_edit_vertical_guides_ = [-803.0]
+
+[node name="UI" type="Control" parent="."]
+z_index = 5
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1600.0
+offset_bottom = 960.0
+
+[node name="HealthBar" type="ProgressBar" parent="UI"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 47.0
+grow_horizontal = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_54k8p")
+theme_override_styles/fill = SubResource("StyleBoxFlat_cxa0t")
+value = 100.0
+show_percentage = false
+
+[node name="ScoreLabel" type="Label" parent="UI/HealthBar"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 91.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("6_cxa0t")
+theme_override_font_sizes/font_size = 38
+text = "0
+"
+horizontal_alignment = 1
+vertical_alignment = 3
+
+[node name="PlayerManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_cwuo0")
+
+[node name="CoinManager" type="Node" parent="."]
+script = ExtResource("7_jhn4r")
+coin = ExtResource("4_54k8p")
+
+[node name="CoinTimer" type="Timer" parent="CoinManager"]
+wait_time = 1.125
+autostart = true
+
+[node name="ObstacleManager" type="Node" parent="."]
+script = ExtResource("9_jhn4r")
+obstacle = ExtResource("7_anlui")
+
+[node name="ObstaclesTimer" type="Timer" parent="ObstacleManager"]
+wait_time = 1.5
+autostart = true
+
+[node name="Background" type="Node2D" parent="." groups=["DynamicObjects"]]
+z_index = -1
+scale = Vector2(2, 2)
+script = ExtResource("1_fi8do")
+metadata/_edit_group_ = true
+
+[node name="Backdrop1" type="Sprite2D" parent="Background"]
+position = Vector2(400, 240)
+texture = ExtResource("1_swli4")
+
+[node name="Backdrop2" type="Sprite2D" parent="Background"]
+position = Vector2(1199, 240)
+texture = ExtResource("1_swli4")
+
+[node name="Backdrop3" type="Sprite2D" parent="Background"]
+position = Vector2(1998, 240)
+texture = ExtResource("1_swli4")
+
+[node name="Ceiling" type="Node" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Ceiling"]
+position = Vector2(0, 65)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ceiling/StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_54k8p")
+
+[node name="KillZone" type="Node" parent="."]
+
+[node name="Area2D" type="Area2D" parent="KillZone"]
+position = Vector2(0, 1054)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone/Area2D"]
+shape = SubResource("WorldBoundaryShape2D_cxa0t")
+
+[node name="Testing Barrier" type="StaticBody2D" parent="."]
+position = Vector2(0, 575)
+script = ExtResource("9_s1fyu")
+
+[node name="TestingMode" type="CollisionShape2D" parent="Testing Barrier"]
+shape = SubResource("WorldBoundaryShape2D_klvx2")
+
+[connection signal="child_exiting_tree" from="PlayerManager" to="." method="_on_player_manager_child_exiting_tree"]
+[connection signal="timeout" from="CoinManager/CoinTimer" to="CoinManager" method="_on_coin_timer_timeout"]
+[connection signal="timeout" from="ObstacleManager/ObstaclesTimer" to="ObstacleManager" method="_on_obstacles_timer_timeout"]
+[connection signal="body_entered" from="KillZone/Area2D" to="." method="_on_area_2d_body_entered"]

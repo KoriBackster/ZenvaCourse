@@ -1,0 +1,63 @@
+[gd_scene load_steps=6 format=3 uid="uid://bvlhm8qco4n72"]
+
+[ext_resource type="Shader" uid="uid://odij03y3dbwo" path="res://ZenvaChallenges/4. TappyPlane/Scripts/Resource/text.gdshader" id="1_frmg5"]
+[ext_resource type="Script" uid="uid://bgan6lbtx1ky1" path="res://ZenvaChallenges/4. TappyPlane/Scripts/Scene/menu.gd" id="1_wu62b"]
+[ext_resource type="FontFile" uid="uid://bxtgmpckqvo85" path="res://ZenvaChallenges/4. TappyPlane/Assets-TappyPlane/kenvector_future.ttf" id="2_6hsso"]
+[ext_resource type="Texture2D" uid="uid://b70h6r4edtbed" path="res://ZenvaChallenges/4. TappyPlane/Resources/white_toGray.tres" id="2_wu62b"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wu62b"]
+shader = ExtResource("1_frmg5")
+shader_parameter/gradient = ExtResource("2_wu62b")
+shader_parameter/mix_amount = 0.2
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wu62b")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.552941, 0.647059, 0.952941, 1)
+
+[node name="Title" type="Label" parent="."]
+material = SubResource("ShaderMaterial_wu62b")
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -583.0
+offset_top = 169.0
+offset_right = 583.0
+offset_bottom = 322.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_6hsso")
+theme_override_font_sizes/font_size = 136
+text = "Tappy Plane"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -233.0
+offset_top = -66.0
+offset_right = 227.0
+offset_bottom = 67.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_6hsso")
+theme_override_font_sizes/font_size = 110
+text = "Play"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

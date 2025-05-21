@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://phcfc28d1cyj"]
+
+[ext_resource type="Script" uid="uid://o8u8qmhikegd" path="res://ZenvaChallenges/4. TappyPlane/Scripts/Prefab/player.gd" id="1_rf4bv"]
+[ext_resource type="Texture2D" uid="uid://cs116vjtesx2p" path="res://ZenvaChallenges/4. TappyPlane/Assets-TappyPlane/Player.png" id="1_vbisc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vbisc"]
+radius = 36.1248
+
+[node name="Player" type="RigidBody2D"]
+gravity_scale = 0.8
+contact_monitor = true
+max_contacts_reported = 5
+script = ExtResource("1_rf4bv")
+
+[node name="Player" type="Sprite2D" parent="."]
+texture = ExtResource("1_vbisc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_vbisc")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="StartDelay" type="Timer" parent="."]
+wait_time = 4.2
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="StartDelay" to="." method="_on_start_delay_timeout"]

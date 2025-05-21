@@ -1,0 +1,128 @@
+[gd_scene load_steps=11 format=3 uid="uid://dthstrrt6bkhu"]
+
+[ext_resource type="PackedScene" uid="uid://cddcf3d66sj8" path="res://Collision/player.tscn" id="1_ki0wb"]
+[ext_resource type="PackedScene" uid="uid://njkqs12xf7i8" path="res://Collision/tree.tscn" id="2_l3cka"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ki0wb"]
+friction = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l3cka"]
+albedo_color = Color(0.870588, 0.94902, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_t6fk7"]
+material = SubResource("StandardMaterial3D_l3cka")
+size = Vector3(16, 4, 40)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yu0sf"]
+size = Vector3(16, 4, 40)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_j6q66"]
+sky_top_color = Color(0.615914, 0.722897, 0.986549, 1)
+sky_horizon_color = Color(0.984314, 0.843137, 0.921569, 1)
+ground_bottom_color = Color(0.870714, 0.947985, 0.998483, 1)
+
+[sub_resource type="Sky" id="Sky_1lei2"]
+sky_material = SubResource("ProceduralSkyMaterial_j6q66")
+
+[sub_resource type="Environment" id="Environment_lrbq7"]
+background_mode = 2
+background_color = Color(0.588235, 0.745098, 0.913725, 1)
+sky = SubResource("Sky_1lei2")
+ambient_light_source = 3
+ambient_light_color = Color(0.772795, 0.537389, 0.121976, 1)
+reflected_light_source = 1
+tonemap_mode = 4
+ssr_enabled = true
+ssao_enabled = true
+sdfgi_use_occlusion = true
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_ki0wb"]
+
+[node name="CollisionGame" type="Node3D"]
+
+[node name="Player" parent="." instance=ExtResource("1_ki0wb")]
+transform = Transform3D(1, 0, 0, 0, 0.939693, -0.34202, 0, 0.34202, 0.939693, 0, 10, -17)
+physics_material_override = SubResource("PhysicsMaterial_ki0wb")
+
+[node name="Ground" type="StaticBody3D" parent="." groups=["Ground"]]
+transform = Transform3D(1, 0, 0, 0, 0.939693, -0.34202, 0, 0.34202, 0.939693, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+mesh = SubResource("BoxMesh_t6fk7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+shape = SubResource("BoxShape3D_yu0sf")
+
+[node name="Obstacles" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+
+[node name="Tree" parent="Obstacles" instance=ExtResource("2_l3cka")]
+transform = Transform3D(1, 0, 0, 0, 0.939693, -0.34202, 0, 0.34202, 0.939693, 4.93089, 7.24205, -9.75222)
+
+[node name="Tree2" parent="Obstacles" instance=ExtResource("2_l3cka")]
+transform = Transform3D(1, 0, 0, 0, 0.939693, -0.34202, 0, 0.34202, 0.939693, -4.49801, 6.44543, -7.56352)
+
+[node name="Tree3" parent="Obstacles" instance=ExtResource("2_l3cka")]
+transform = Transform3D(1, 0, 0, 0, 0.939693, -0.34202, 0, 0.34202, 0.939693, -3.5972, 8.56597, -13.3897)
+
+[node name="Tree4" parent="Obstacles" instance=ExtResource("2_l3cka")]
+transform = Transform3D(1, 0, 0, 0, 0.939693, -0.34202, 0, 0.34202, 0.939693, 2.5634, 10.0491, -17.4646)
+
+[node name="Tree5" parent="Obstacles" instance=ExtResource("2_l3cka")]
+transform = Transform3D(1, 0, 0, 0, 0.939693, -0.34202, 0, 0.34202, 0.939693, 1.24476, 4.43894, -2.05073)
+
+[node name="Tree6" parent="Obstacles" instance=ExtResource("2_l3cka")]
+transform = Transform3D(1, 0, 0, 0, 0.939693, -0.34202, 0, 0.34202, 0.939693, 0.247429, 6.73887, -8.36975)
+
+[node name="Tree7" parent="Obstacles" instance=ExtResource("2_l3cka")]
+transform = Transform3D(1, 0, 0, 0, 0.939693, -0.34202, 0, 0.34202, 0.939693, -4.37338, 3.80306, -0.303657)
+
+[node name="Tree8" parent="Obstacles" instance=ExtResource("2_l3cka")]
+transform = Transform3D(1, 0, 0, 0, 0.939693, -0.34202, 0, 0.34202, 0.939693, 5.47086, 3.0798, 1.68348)
+
+[node name="Tree9" parent="Obstacles" instance=ExtResource("2_l3cka")]
+transform = Transform3D(1, 0, 0, 0, 0.939693, -0.34202, 0, 0.34202, 0.939693, 7.32725, 1.14374, 7.00277)
+
+[node name="Tree10" parent="Obstacles" instance=ExtResource("2_l3cka")]
+transform = Transform3D(1, 0, 0, 0, 0.939693, -0.34202, 0, 0.34202, 0.939693, -7.00763, 1.78856, 5.23112)
+
+[node name="Tree11" parent="Obstacles" instance=ExtResource("2_l3cka")]
+transform = Transform3D(1, 0, 0, 0, 0.939693, -0.34202, 0, 0.34202, 0.939693, -0.563123, 2.80404, 2.44113)
+
+[node name="Tree12" parent="Obstacles" instance=ExtResource("2_l3cka")]
+transform = Transform3D(1, 0, 0, 0, 0.939693, -0.34202, 0, 0.34202, 0.939693, -3.1521, 0.842294, 7.83098)
+
+[node name="Tree13" parent="Obstacles" instance=ExtResource("2_l3cka")]
+transform = Transform3D(1, 0, 0, 0, 0.939693, -0.34202, 0, 0.34202, 0.939693, 2.85257, 1.48221, 6.07283)
+
+[node name="Tree14" parent="Obstacles" instance=ExtResource("2_l3cka")]
+transform = Transform3D(1, 0, 0, 0, 0.939693, -0.34202, 0, 0.34202, 0.939693, -4.98195, -1.14528, 13.2918)
+
+[node name="Tree15" parent="Obstacles" instance=ExtResource("2_l3cka")]
+transform = Transform3D(1, 0, 0, 0, 0.939693, -0.34202, 0, 0.34202, 0.939693, 0.945399, -0.34547, 11.0943)
+
+[node name="Tree16" parent="Obstacles" instance=ExtResource("2_l3cka")]
+transform = Transform3D(1, 0, 0, 0, 0.939693, -0.34202, 0, 0.34202, 0.939693, 5.11437, -1.16311, 13.3408)
+
+[node name="Tree17" parent="Obstacles" instance=ExtResource("2_l3cka")]
+transform = Transform3D(1, 0, 0, 0, 0.939693, -0.34202, 0, 0.34202, 0.939693, 7.21923, -2.68351, 17.518)
+
+[node name="Tree18" parent="Obstacles" instance=ExtResource("2_l3cka")]
+transform = Transform3D(1, 0, 0, 0, 0.939693, -0.34202, 0, 0.34202, 0.939693, -1.83961, -2.70981, 17.5903)
+
+[node name="Tree19" parent="Obstacles" instance=ExtResource("2_l3cka")]
+transform = Transform3D(1, 0, 0, 0, 0.939693, -0.34202, 0, 0.34202, 0.939693, 2.84432, -3.20315, 18.9457)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.604849, 0.79634, 0, -0.79634, -0.604849, 0, 15.2316, -11.8401)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_lrbq7")
+
+[node name="KillZone" type="StaticBody3D" parent="." groups=["Killzone"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.130524, -16.6511, -2.44833)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KillZone"]
+shape = SubResource("WorldBoundaryShape3D_ki0wb")
+debug_color = Color(0.949038, 0.136034, 0.458233, 0.42)

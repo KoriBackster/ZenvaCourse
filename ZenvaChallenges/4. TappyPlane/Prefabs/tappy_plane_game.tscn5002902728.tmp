@@ -1,0 +1,106 @@
+[gd_scene load_steps=12 format=3 uid="uid://cl5iioxhooqlv"]
+
+[ext_resource type="Script" uid="uid://dy44o3nbb3hp7" path="res://ZenvaChallenges/4. TappyPlane/Scripts/tappy_plane_game.gd" id="1_68ipj"]
+[ext_resource type="Script" uid="uid://bb0v7ff3ccgee" path="res://ZenvaChallenges/4. TappyPlane/Scripts/background.gd" id="1_fi8do"]
+[ext_resource type="Texture2D" uid="uid://7pvucfpagnyy" path="res://ZenvaChallenges/4. TappyPlane/Assets-TappyPlane/Background.png" id="1_swli4"]
+[ext_resource type="PackedScene" uid="uid://c30q3eqsp7xno" path="res://ZenvaChallenges/4. TappyPlane/Scenes/coin.tscn" id="4_54k8p"]
+[ext_resource type="PackedScene" uid="uid://phcfc28d1cyj" path="res://ZenvaChallenges/4. TappyPlane/Scenes/player.tscn" id="5_54k8p"]
+[ext_resource type="FontFile" uid="uid://bxtgmpckqvo85" path="res://ZenvaChallenges/4. TappyPlane/Assets-TappyPlane/kenvector_future.ttf" id="6_cxa0t"]
+[ext_resource type="PackedScene" uid="uid://bmarys28r6sdl" path="res://ZenvaChallenges/4. TappyPlane/Scenes/obstacle.tscn" id="7_anlui"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_54k8p"]
+bg_color = Color(0.164706, 0.164706, 0.164706, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cxa0t"]
+bg_color = Color(0.254054, 0.618108, 0.473084, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_54k8p"]
+normal = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_cxa0t"]
+
+[node name="TappyPlaneGame" type="Node"]
+script = ExtResource("1_68ipj")
+obstacle = ExtResource("7_anlui")
+metadata/_edit_vertical_guides_ = [-803.0]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.75
+autostart = true
+
+[node name="UI" type="Control" parent="."]
+z_index = 5
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1600.0
+offset_bottom = 960.0
+
+[node name="HealthBar" type="ProgressBar" parent="UI"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 47.0
+grow_horizontal = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_54k8p")
+theme_override_styles/fill = SubResource("StyleBoxFlat_cxa0t")
+value = 100.0
+show_percentage = false
+
+[node name="ScoreLabel" type="Label" parent="UI/HealthBar"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 91.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("6_cxa0t")
+theme_override_font_sizes/font_size = 38
+text = "0
+"
+horizontal_alignment = 1
+vertical_alignment = 3
+
+[node name="Background" type="Node2D" parent="." groups=["DynamicObjects"]]
+scale = Vector2(2, 2)
+script = ExtResource("1_fi8do")
+
+[node name="Backdrop1" type="Sprite2D" parent="Background"]
+position = Vector2(400, 240)
+texture = ExtResource("1_swli4")
+
+[node name="Backdrop2" type="Sprite2D" parent="Background"]
+position = Vector2(1200, 240)
+texture = ExtResource("1_swli4")
+
+[node name="Backdrop3" type="Sprite2D" parent="Background"]
+position = Vector2(2000, 240)
+texture = ExtResource("1_swli4")
+
+[node name="Coins" type="Node2D" parent="." groups=["DynamicObjects"]]
+
+[node name="Coin" parent="Coins" instance=ExtResource("4_54k8p")]
+position = Vector2(408, 196)
+
+[node name="Player" parent="." instance=ExtResource("5_54k8p")]
+position = Vector2(146, 480)
+mass = 2.2
+gravity_scale = 1.6
+continuous_cd = 1
+
+[node name="Ceiling" type="Node" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Ceiling"]
+position = Vector2(0, 65)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ceiling/StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_54k8p")
+
+[node name="KillZone" type="Node" parent="."]
+
+[node name="Area2D" type="Area2D" parent="KillZone" groups=["KillZone"]]
+position = Vector2(0, 1054)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone/Area2D"]
+shape = SubResource("WorldBoundaryShape2D_cxa0t")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="KillZone/Area2D" to="." method="_on_area_2d_body_entered"]

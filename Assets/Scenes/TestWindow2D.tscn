@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://do4xjvhcmtsth"]
+
+[ext_resource type="Script" uid="uid://be5mk4iusy305" path="res://Assets/Scripts/main_scene_toggle.gd" id="1_sakdf"]
+
+[node name="TestWindow2D" type="Node2D"]
+script = ExtResource("1_sakdf")

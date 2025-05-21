@@ -1,14 +1,18 @@
-[gd_scene load_steps=15 format=3 uid="uid://cl5iioxhooqlv"]
+[gd_scene load_steps=19 format=3 uid="uid://cl5iioxhooqlv"]
 
-[ext_resource type="Script" uid="uid://bb0v7ff3ccgee" path="res://ZenvaChallenges/4. TappyPlane/Scripts/background.gd" id="1_fi8do"]
-[ext_resource type="Script" uid="uid://cj3ce2qxewj32" path="res://ZenvaChallenges/4. TappyPlane/Scripts/tappy_plane_game.gd" id="1_jhn4r"]
-[ext_resource type="Texture2D" uid="uid://7pvucfpagnyy" path="res://ZenvaChallenges/4. TappyPlane/Assets-TappyPlane/Background.png" id="1_swli4"]
-[ext_resource type="PackedScene" uid="uid://c30q3eqsp7xno" path="res://ZenvaChallenges/4. TappyPlane/Scenes/coin.tscn" id="4_54k8p"]
-[ext_resource type="FontFile" uid="uid://bxtgmpckqvo85" path="res://ZenvaChallenges/4. TappyPlane/Assets-TappyPlane/kenvector_future.ttf" id="6_cxa0t"]
-[ext_resource type="PackedScene" uid="uid://bmarys28r6sdl" path="res://ZenvaChallenges/4. TappyPlane/Scenes/obstacle.tscn" id="7_anlui"]
-[ext_resource type="Script" uid="uid://m83kpee6axj6" path="res://ZenvaChallenges/4. TappyPlane/Scripts/coinManager.gd" id="7_jhn4r"]
-[ext_resource type="Script" uid="uid://tp67u6mqqayj" path="res://ZenvaChallenges/4. TappyPlane/Scripts/obstacleManager.gd" id="9_jhn4r"]
-[ext_resource type="Script" uid="uid://bdh8hiepdxy16" path="res://ZenvaChallenges/4. TappyPlane/Scenes/static_body_2d.gd" id="9_s1fyu"]
+[ext_resource type="Script" uid="uid://cj3ce2qxewj32" path="res://ZenvaChallenges/4. TappyPlane/Scripts/Scene/tappy_plane_game.gd" id="1_s1fyu"]
+[ext_resource type="FontFile" uid="uid://bxtgmpckqvo85" path="res://ZenvaChallenges/4. TappyPlane/Assets-TappyPlane/kenvector_future.ttf" id="2_b4ypb"]
+[ext_resource type="Script" uid="uid://d8dwscye5jgt" path="res://ZenvaChallenges/4. TappyPlane/Scripts/Misc/Manager/player_manager.gd" id="3_00ruf"]
+[ext_resource type="Script" uid="uid://c8wik2mkbyep6" path="res://ZenvaChallenges/4. TappyPlane/Scripts/Misc/Manager/death_ui.gd" id="3_27l45"]
+[ext_resource type="Script" uid="uid://m83kpee6axj6" path="res://ZenvaChallenges/4. TappyPlane/Scripts/Misc/Manager/coinManager.gd" id="4_27l45"]
+[ext_resource type="PackedScene" uid="uid://c30q3eqsp7xno" path="res://ZenvaChallenges/4. TappyPlane/Prefabs/coin.tscn" id="5_rlson"]
+[ext_resource type="Script" uid="uid://bad584haahbhp" path="res://ZenvaChallenges/4. TappyPlane/Scripts/Misc/Timers/one_shot_timer.gd" id="6_00ruf"]
+[ext_resource type="Script" uid="uid://tp67u6mqqayj" path="res://ZenvaChallenges/4. TappyPlane/Scripts/Misc/Manager/obstacleManager.gd" id="6_3t2bd"]
+[ext_resource type="PackedScene" uid="uid://bmarys28r6sdl" path="res://ZenvaChallenges/4. TappyPlane/Prefabs/obstacle.tscn" id="7_5k550"]
+[ext_resource type="Script" uid="uid://bb0v7ff3ccgee" path="res://ZenvaChallenges/4. TappyPlane/Scripts/Misc/Environment/background.gd" id="8_lir7t"]
+[ext_resource type="Texture2D" uid="uid://7pvucfpagnyy" path="res://ZenvaChallenges/4. TappyPlane/Assets-TappyPlane/Background.png" id="9_u1ril"]
+[ext_resource type="Script" uid="uid://bdh8hiepdxy16" path="res://ZenvaChallenges/4. TappyPlane/Scripts/Misc/Environment/test_mode_collider.gd" id="10_chyk7"]
+[ext_resource type="Script" uid="uid://c2kveymlis5c6" path="res://ZenvaChallenges/4. TappyPlane/Scripts/Misc/Timers/end_cycle_timer.gd" id="11_b4ypb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_54k8p"]
 bg_color = Color(0.164706, 0.164706, 0.164706, 1)
@@ -24,7 +28,7 @@ normal = Vector2(0, 1)
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_klvx2"]
 
 [node name="Main" type="Node"]
-script = ExtResource("1_jhn4r")
+script = ExtResource("1_s1fyu")
 metadata/_edit_vertical_guides_ = [-803.0]
 
 [node name="UI" type="Control" parent="."]
@@ -33,13 +37,17 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 1600.0
 offset_bottom = 960.0
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="HealthBar" type="ProgressBar" parent="UI"]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 47.0
+offset_top = -1.0
+offset_bottom = 46.0
 grow_horizontal = 2
+scale = Vector2(1.00088, 1)
 theme_override_styles/background = SubResource("StyleBoxFlat_54k8p")
 theme_override_styles/fill = SubResource("StyleBoxFlat_cxa0t")
 value = 100.0
@@ -49,52 +57,190 @@ show_percentage = false
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_left = -14.0
-offset_top = 20.0
-offset_right = -14.0
-offset_bottom = 111.0
+offset_bottom = 91.0
 grow_horizontal = 2
-theme_override_fonts/font = ExtResource("6_cxa0t")
+theme_override_fonts/font = ExtResource("2_b4ypb")
 theme_override_font_sizes/font_size = 38
 text = "0
 "
 horizontal_alignment = 1
 vertical_alignment = 3
 
+[node name="StartText" type="Label" parent="UI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -47.0
+offset_top = -11.5
+offset_right = 47.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 58
+theme_override_constants/outline_size = 12
+theme_override_constants/shadow_outline_size = 18
+theme_override_fonts/font = ExtResource("2_b4ypb")
+theme_override_font_sizes/font_size = 70
+text = "Starting in..."
+
+[node name="RemainingStartTimeDisplay" type="Label" parent="UI/StartText"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 322.0
+offset_top = -19.0
+offset_right = 472.0
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 18
+theme_override_fonts/font = ExtResource("2_b4ypb")
+theme_override_font_sizes/font_size = 45
+text = "3 ( s )"
+
+[node name="StartTimer" type="Timer" parent="UI/StartText"]
+
+[node name="DeathUI" type="Control" parent="UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_27l45")
+
+[node name="ColorRect" type="ColorRect" parent="UI/DeathUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.784314)
+
+[node name="DeathText" type="Label" parent="UI/DeathUI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -285.5
+offset_top = -154.0
+offset_right = 285.5
+offset_bottom = -74.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_b4ypb")
+theme_override_font_sizes/font_size = 70
+text = "Game Over..."
+uppercase = true
+
+[node name="PlayAgain" type="Button" parent="UI/DeathUI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -167.0
+offset_top = -24.0
+offset_right = 167.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_b4ypb")
+theme_override_font_sizes/font_size = 45
+disabled = true
+text = "Play Again"
+
+[node name="Quit" type="Button" parent="UI/DeathUI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -167.0
+offset_top = 86.0
+offset_right = 167.0
+offset_bottom = 146.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_b4ypb")
+theme_override_font_sizes/font_size = 45
+disabled = true
+text = "Quit"
+
+[node name="CountDownLabel" type="Label" parent="UI/DeathUI"]
+layout_mode = 0
+offset_left = 785.0
+offset_top = 639.0
+offset_right = 825.0
+offset_bottom = 691.0
+theme_override_fonts/font = ExtResource("2_b4ypb")
+theme_override_font_sizes/font_size = 45
+text = "5"
+
+[node name="Camera2D" type="Camera2D" parent="UI"]
+position = Vector2(800, 482)
+
 [node name="PlayerManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_00ruf")
 
 [node name="CoinManager" type="Node" parent="."]
-script = ExtResource("7_jhn4r")
-coin = ExtResource("4_54k8p")
+script = ExtResource("4_27l45")
+coin = ExtResource("5_rlson")
 
 [node name="CoinTimer" type="Timer" parent="CoinManager"]
-wait_time = 1.125
+wait_time = 1.725
+script = ExtResource("6_00ruf")
+
+[node name="StartDelay" type="Timer" parent="CoinManager/CoinTimer"]
+wait_time = 0.1
+one_shot = true
 autostart = true
 
 [node name="ObstacleManager" type="Node" parent="."]
-script = ExtResource("9_jhn4r")
-obstacle = ExtResource("7_anlui")
+script = ExtResource("6_3t2bd")
+obstacle = ExtResource("7_5k550")
 
 [node name="ObstaclesTimer" type="Timer" parent="ObstacleManager"]
-wait_time = 0.75
+wait_time = 1.5
+script = ExtResource("6_00ruf")
+
+[node name="StartDelay" type="Timer" parent="ObstacleManager/ObstaclesTimer"]
+wait_time = 0.5
+one_shot = true
 autostart = true
 
 [node name="Background" type="Node2D" parent="." groups=["DynamicObjects"]]
 z_index = -1
 scale = Vector2(2, 2)
-script = ExtResource("1_fi8do")
+script = ExtResource("8_lir7t")
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="Backdrop1" type="Sprite2D" parent="Background"]
 position = Vector2(400, 240)
-texture = ExtResource("1_swli4")
+texture = ExtResource("9_u1ril")
 
 [node name="Backdrop2" type="Sprite2D" parent="Background"]
 position = Vector2(1199, 240)
-texture = ExtResource("1_swli4")
+texture = ExtResource("9_u1ril")
 
 [node name="Backdrop3" type="Sprite2D" parent="Background"]
 position = Vector2(1998, 240)
-texture = ExtResource("1_swli4")
+texture = ExtResource("9_u1ril")
 
 [node name="Ceiling" type="Node" parent="."]
 
@@ -112,13 +258,33 @@ position = Vector2(0, 1054)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone/Area2D"]
 shape = SubResource("WorldBoundaryShape2D_cxa0t")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(0, 604)
-script = ExtResource("9_s1fyu")
+[node name="Testing Barrier" type="StaticBody2D" parent="."]
+position = Vector2(0, 575)
+script = ExtResource("10_chyk7")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="TestingMode" type="CollisionShape2D" parent="Testing Barrier"]
 shape = SubResource("WorldBoundaryShape2D_klvx2")
 
+[node name="EndCycleTimer" type="Timer" parent="."]
+wait_time = 6.0
+one_shot = true
+script = ExtResource("11_b4ypb")
+
+[node name="Iterator" type="Timer" parent="EndCycleTimer"]
+
+[connection signal="timeout" from="UI/StartText/StartTimer" to="." method="_on_start_timer_timeout"]
+[connection signal="pressed" from="UI/DeathUI/PlayAgain" to="UI/DeathUI" method="_on_play_again_pressed"]
+[connection signal="pressed" from="UI/DeathUI/Quit" to="UI/DeathUI" method="_on_quit_pressed"]
+[connection signal="child_exiting_tree" from="PlayerManager" to="." method="_on_player_manager_child_exiting_tree"]
+[connection signal="player_boosting" from="PlayerManager" to="." method="_on_boosting"]
+[connection signal="player_killed" from="PlayerManager" to="EndCycleTimer" method="_on_player_manager_player_killed"]
+[connection signal="player_killed" from="PlayerManager" to="UI/DeathUI" method="_on_player_manager_player_killed"]
+[connection signal="player_spawn" from="PlayerManager" to="." method="_on_player_spawn"]
+[connection signal="coin_collected" from="CoinManager" to="." method="_on_coin_collected"]
 [connection signal="timeout" from="CoinManager/CoinTimer" to="CoinManager" method="_on_coin_timer_timeout"]
+[connection signal="timeout" from="CoinManager/CoinTimer/StartDelay" to="CoinManager/CoinTimer" method="_on_one_shot_timeout"]
 [connection signal="timeout" from="ObstacleManager/ObstaclesTimer" to="ObstacleManager" method="_on_obstacles_timer_timeout"]
+[connection signal="timeout" from="ObstacleManager/ObstaclesTimer/StartDelay" to="ObstacleManager/ObstaclesTimer" method="_on_one_shot_timeout"]
 [connection signal="body_entered" from="KillZone/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="EndCycleTimer" to="." method="_on_end_cycle_timer_timeout"]
+[connection signal="timeout" from="EndCycleTimer/Iterator" to="UI/DeathUI" method="_on_iterator_timeout"]
