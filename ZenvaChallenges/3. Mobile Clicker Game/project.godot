@@ -14,6 +14,7 @@ config/name="ZenvaMobileGame"
 run/main_scene="uid://xdvebl3gqvx2"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
+config/tags=PackedStringArray("practice")
 
 [display]
 

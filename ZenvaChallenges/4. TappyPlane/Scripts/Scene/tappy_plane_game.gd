@@ -2,25 +2,8 @@ extends Node
 
 #region External Signals
 ## Buttons/Signal
-func _ready() -> void:
-	$UI/DeathUI.modulate.a =  0.0
 
-@onready var start_text : Label = get_node("UI").get_node("StartText")
-@onready var RemainingTime : Label = get_node("UI").get_node("StartText").get_node("RemainingStartTimeDisplay")
-@onready var start_timer : Timer = get_node("UI").get_node("StartText").get_node("StartTimer")
-var currentTime : int = 2
-func _on_start_timer_timeout() -> void:
-	if currentTime > -1:
-		RemainingTime.text = str((currentTime)) + "(s)"
-		currentTime -= 1
-		if currentTime == -1:
-			RemainingTime.queue_free()
-		return
-	elif currentTime == -1:
-		start_timer.stop()
-		start_timer.queue_free()
-		start_text.queue_free()
-		return
+
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
@@ -50,7 +33,7 @@ var boosting : bool = false
 @export var dynamic_objects_speed : float = 200.00
 @export var health_decrease_speed : int = 3
 @export var TEST_MODE : bool = false
-
+var game_running : bool = false
 
 #endregion
 #endregion
@@ -60,8 +43,8 @@ var boosting : bool = false
 func _process(delta: float) -> void:
 	
 	_S__move_scene(delta)
-	
-	if not is_instance_valid(start_text):
+
+	if game_running:
 		_S__health_update(health, delta)
 	
 		_S__score_update(delta)
@@ -159,10 +142,34 @@ func _on_boosting() -> void:
 	boosting = true
 
 
-func _on_player_spawn() -> void:
-	var s_timer : Timer = $UI/StartText/StartTimer
-	s_timer.start()
-
-
 func _on_end_cycle_timer_timeout() -> void:
 	get_tree().change_scene_to_file("res://ZenvaChallenges/4. TappyPlane/Scenes/menu.tscn")
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("Pause"):
+		get_tree().paused = !get_tree().paused
+		
+		$UI/Continue.disabled = !get_tree().paused
+		$UI/Continue.visible = get_tree().paused
+		$UI/Quit.disabled = !get_tree().paused
+		$UI/Quit.visible = get_tree().paused
+		return
+
+	
+
+
+func _on_continue_pressed() -> void:
+	get_tree().paused = false
+	$UI/Continue.disabled = true
+	$UI/Continue.visible = false
+	$UI/Quit.disabled = true
+	$UI/Quit.visible = false
+	return
+
+
+func _on_start_ui_tree_exiting() -> void:
+	game_running = true
+
+
+func _on_start_ui_start_game() -> void:
+	$PlayerManager._F__enable_gravity()

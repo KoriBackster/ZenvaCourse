@@ -8,3 +8,5 @@ extends Node
 
 #func _ready() -> void:
 #	print("Main scene path: %s" % main_scene)
+
+

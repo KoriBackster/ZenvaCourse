@@ -1,10 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://phcfc28d1cyj"]
+[gd_scene load_steps=7 format=3 uid="uid://phcfc28d1cyj"]
 
 [ext_resource type="Script" uid="uid://o8u8qmhikegd" path="res://ZenvaChallenges/4. TappyPlane/Scripts/Prefab/player.gd" id="1_rf4bv"]
 [ext_resource type="Texture2D" uid="uid://cs116vjtesx2p" path="res://ZenvaChallenges/4. TappyPlane/Assets-TappyPlane/Player.png" id="1_vbisc"]
+[ext_resource type="Texture2D" uid="uid://d1lnwnuj5hu04" path="res://ZenvaChallenges/4. TappyPlane/Assets-TappyPlane/Circle.png" id="3_6yoxw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vbisc"]
 radius = 36.1248
+
+[sub_resource type="Curve" id="Curve_6yoxw"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.777094, 0.686778), -0.0801818, -0.0801818, 0, 0, Vector2(1, 0), -0.0146396, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_dn10d"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, 0.0141203), 0.0, 0.0, 0, 0, Vector2(0.697044, 0.0654682), 0.0, 0.0, 0, 0, Vector2(1, 0.630295), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [node name="Player" type="RigidBody2D"]
 gravity_scale = 0.8
@@ -16,6 +26,7 @@ script = ExtResource("1_rf4bv")
 texture = ExtResource("1_vbisc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("CircleShape2D_vbisc")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -24,5 +35,39 @@ shape = SubResource("CircleShape2D_vbisc")
 wait_time = 4.2
 one_shot = true
 autostart = true
+
+[node name="Rutter" type="CPUParticles2D" parent="."]
+modulate = Color(0.95, 0.573958, 0.0475, 0.870588)
+position = Vector2(42, 3)
+amount = 25
+texture = ExtResource("3_6yoxw")
+lifetime = 0.8
+lifetime_randomness = 0.35
+spread = 22.0
+gravity = Vector2(-2000, 0)
+initial_velocity_min = 350.0
+initial_velocity_max = 350.0
+scale_amount_min = 0.1
+scale_amount_max = 0.4
+scale_amount_curve = SubResource("Curve_6yoxw")
+color = Color(0.19, 0.124165, 0.0437, 1)
+hue_variation_min = -1.0
+hue_variation_max = 1.0
+hue_variation_curve = SubResource("Curve_dn10d")
+
+[node name="Trail" type="CPUParticles2D" parent="."]
+position = Vector2(-37, -10)
+amount = 28
+texture = ExtResource("3_6yoxw")
+lifetime = 0.81
+lifetime_randomness = 0.15
+direction = Vector2(-1, 0)
+spread = 6.43
+gravity = Vector2(-800, 0)
+initial_velocity_min = 400.0
+initial_velocity_max = 400.0
+scale_amount_min = 0.1
+scale_amount_max = 0.1
+color = Color(1, 0.14, 0.14, 0.533333)
 
 [connection signal="timeout" from="StartDelay" to="." method="_on_start_delay_timeout"]
