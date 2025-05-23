@@ -1,19 +1,322 @@
-[gd_scene load_steps=20 format=3 uid="uid://cl5iioxhooqlv"]
+[gd_scene load_steps=26 format=3 uid="uid://cl5iioxhooqlv"]
 
 [ext_resource type="Script" uid="uid://cj3ce2qxewj32" path="res://ZenvaChallenges/4. TappyPlane/Scripts/Scene/tappy_plane_game.gd" id="1_s1fyu"]
+[ext_resource type="Script" uid="uid://bskglpcrtorh6" path="res://ZenvaChallenges/4. TappyPlane/Scripts/Misc/Manager/UI_manager.gd" id="2_3t2bd"]
 [ext_resource type="FontFile" uid="uid://bxtgmpckqvo85" path="res://ZenvaChallenges/4. TappyPlane/Assets-TappyPlane/kenvector_future.ttf" id="2_b4ypb"]
 [ext_resource type="Script" uid="uid://d8dwscye5jgt" path="res://ZenvaChallenges/4. TappyPlane/Scripts/Misc/Manager/RBplayer_manager.gd" id="3_00ruf"]
-[ext_resource type="Script" uid="uid://c8wik2mkbyep6" path="res://ZenvaChallenges/4. TappyPlane/Scripts/Misc/Manager/UIdeath_manager.gd" id="3_27l45"]
-[ext_resource type="Script" uid="uid://po4o5sg7r3d3" path="res://ZenvaChallenges/4. TappyPlane/Scripts/Misc/Manager/UIstart_manager.gd" id="3_rlson"]
 [ext_resource type="Script" uid="uid://m83kpee6axj6" path="res://ZenvaChallenges/4. TappyPlane/Scripts/Misc/Manager/ABcoin_manager.gd" id="4_27l45"]
 [ext_resource type="PackedScene" uid="uid://c30q3eqsp7xno" path="res://ZenvaChallenges/4. TappyPlane/Prefabs/coin.tscn" id="5_rlson"]
 [ext_resource type="Script" uid="uid://bad584haahbhp" path="res://ZenvaChallenges/4. TappyPlane/Scripts/Misc/Timers/one_shot_timer.gd" id="6_00ruf"]
 [ext_resource type="Script" uid="uid://tp67u6mqqayj" path="res://ZenvaChallenges/4. TappyPlane/Scripts/Misc/Manager/ABobstacle_manager.gd" id="6_3t2bd"]
 [ext_resource type="PackedScene" uid="uid://bmarys28r6sdl" path="res://ZenvaChallenges/4. TappyPlane/Prefabs/obstacle.tscn" id="7_5k550"]
 [ext_resource type="Script" uid="uid://bb0v7ff3ccgee" path="res://ZenvaChallenges/4. TappyPlane/Scripts/Misc/Environment/background.gd" id="8_lir7t"]
+[ext_resource type="AudioStream" uid="uid://bknvq1cvv7g75" path="res://ZenvaChallenges/4. TappyPlane/Assets-TappyPlane/CoinCollected.ogg" id="9_3t2bd"]
 [ext_resource type="Texture2D" uid="uid://7pvucfpagnyy" path="res://ZenvaChallenges/4. TappyPlane/Assets-TappyPlane/Background.png" id="9_u1ril"]
 [ext_resource type="Script" uid="uid://bdh8hiepdxy16" path="res://ZenvaChallenges/4. TappyPlane/Scripts/Misc/Environment/test_mode_collider.gd" id="10_chyk7"]
 [ext_resource type="Script" uid="uid://c2kveymlis5c6" path="res://ZenvaChallenges/4. TappyPlane/Scripts/Misc/Timers/end_cycle_timer.gd" id="11_b4ypb"]
+
+[sub_resource type="Animation" id="Animation_5k550"]
+resource_name = "DisableStartUI"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../StartUI:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_rlson"]
+resource_name = "EnableDeathUI"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.566667, 1.53333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CountDownLabel:modulate")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.333333, 0.566667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("DeathText:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Buttons/PlayAgain:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.0333333, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Buttons/PlayAgain:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.0333333, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../Buttons/Quit:disabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.0333333, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../Buttons/Quit:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.0333333, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../..:dynamic_objects_speed")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 1.16667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [400.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_lir7t"]
+resource_name = "EnableStartUI"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../StartUI:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 0.133333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../StartUI:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.06667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_3t2bd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CountDownLabel:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("DeathText:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Buttons/PlayAgain:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../Buttons/PlayAgain:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../Buttons/Quit:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../Buttons/Quit:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../StartUI:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../..:dynamic_objects_speed")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [400.0]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("../StartUI:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_u1ril"]
+resource_name = "coin"
+length = 3.0
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5k550"]
+_data = {
+&"DisableStartUI": SubResource("Animation_5k550"),
+&"EnableDeathUI": SubResource("Animation_rlson"),
+&"EnableStartUI": SubResource("Animation_lir7t"),
+&"RESET": SubResource("Animation_3t2bd"),
+&"coin": SubResource("Animation_u1ril")
+}
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_54k8p"]
 bg_color = Color(0.164706, 0.164706, 0.164706, 1)
@@ -31,6 +334,7 @@ normal = Vector2(0, 1)
 [node name="Main" type="Node"]
 script = ExtResource("1_s1fyu")
 dynamic_objects_speed = 400.0
+TEST_MODE = true
 metadata/_edit_vertical_guides_ = [-803.0]
 
 [node name="UI" type="Control" parent="."]
@@ -39,8 +343,22 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 1600.0
 offset_bottom = 960.0
+script = ExtResource("2_3t2bd")
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
+
+[node name="EndCycleTimer" type="Timer" parent="UI"]
+wait_time = 6.0
+one_shot = true
+script = ExtResource("11_b4ypb")
+
+[node name="Iterator" type="Timer" parent="UI/EndCycleTimer"]
+
+[node name="AnimationTree" type="AnimationPlayer" parent="UI"]
+root_node = NodePath("../DeathUI")
+libraries = {
+&"": SubResource("AnimationLibrary_5k550")
+}
 
 [node name="HealthBar" type="ProgressBar" parent="UI"]
 layout_mode = 1
@@ -70,10 +388,10 @@ vertical_alignment = 3
 
 [node name="StartUI" type="Control" parent="UI"]
 visible = false
+z_index = 6
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("3_rlson")
 
 [node name="StartText" type="Label" parent="UI/StartUI"]
 layout_mode = 1
@@ -119,13 +437,13 @@ text = "3(s)"
 
 [node name="DeathUI" type="Control" parent="UI"]
 visible = false
+z_index = 6
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("3_27l45")
 
 [node name="ColorRect" type="ColorRect" parent="UI/DeathUI"]
 layout_mode = 1
@@ -149,28 +467,12 @@ offset_right = 285.5
 offset_bottom = -74.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
 theme_override_fonts/font = ExtResource("2_b4ypb")
 theme_override_font_sizes/font_size = 70
 text = "Game Over..."
 uppercase = true
-
-[node name="PlayAgain" type="Button" parent="UI/DeathUI"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -167.0
-offset_top = -24.0
-offset_right = 167.0
-offset_bottom = 36.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("2_b4ypb")
-theme_override_font_sizes/font_size = 45
-disabled = true
-text = "Play Again"
 
 [node name="CountDownLabel" type="Label" parent="UI/DeathUI"]
 layout_mode = 0
@@ -185,7 +487,32 @@ text = "5"
 [node name="Camera2D" type="Camera2D" parent="UI"]
 position = Vector2(800, 482)
 
-[node name="Quit" type="Button" parent="UI"]
+[node name="Buttons" type="Control" parent="UI"]
+z_index = 7
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PlayAgain" type="Button" parent="UI/Buttons"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 613.0
+offset_top = 436.0
+offset_right = 947.0
+offset_bottom = 496.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_b4ypb")
+theme_override_font_sizes/font_size = 45
+disabled = true
+text = "Play Again"
+
+[node name="Quit" type="Button" parent="UI/Buttons"]
 process_mode = 3
 visible = false
 layout_mode = 1
@@ -194,10 +521,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -167.0
-offset_top = 86.0
-offset_right = 167.0
-offset_bottom = 146.0
+offset_left = 613.0
+offset_top = 546.0
+offset_right = 947.0
+offset_bottom = 606.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_b4ypb")
@@ -205,19 +532,20 @@ theme_override_font_sizes/font_size = 45
 disabled = true
 text = "Quit?"
 
-[node name="Continue" type="Button" parent="UI"]
+[node name="Continue" type="Button" parent="UI/Buttons"]
 process_mode = 3
 visible = false
+modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -167.0
-offset_top = -24.0
-offset_right = 167.0
-offset_bottom = 36.0
+offset_left = 613.0
+offset_top = 436.0
+offset_right = 947.0
+offset_bottom = 496.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_b4ypb")
@@ -232,6 +560,9 @@ script = ExtResource("3_00ruf")
 [node name="CoinManager" type="Node" parent="."]
 script = ExtResource("4_27l45")
 coin = ExtResource("5_rlson")
+
+[node name="CoinCollectAudio" type="AudioStreamPlayer" parent="CoinManager"]
+stream = ExtResource("9_3t2bd")
 
 [node name="CoinTimer" type="Timer" parent="CoinManager"]
 wait_time = 1.725
@@ -298,29 +629,22 @@ script = ExtResource("10_chyk7")
 [node name="TestingMode" type="CollisionShape2D" parent="Testing Barrier"]
 shape = SubResource("WorldBoundaryShape2D_klvx2")
 
-[node name="EndCycleTimer" type="Timer" parent="."]
-wait_time = 6.0
-one_shot = true
-script = ExtResource("11_b4ypb")
-
-[node name="Iterator" type="Timer" parent="EndCycleTimer"]
-
-[connection signal="start_game" from="UI/StartUI" to="." method="_on_start_ui_start_game"]
+[connection signal="start_game" from="UI" to="." method="_on_ui_start_game"]
+[connection signal="timeout" from="UI/EndCycleTimer" to="." method="_on_end_cycle_timer_timeout"]
+[connection signal="timeout" from="UI/EndCycleTimer/Iterator" to="UI" method="_on_iterator_timeout"]
 [connection signal="tree_exiting" from="UI/StartUI" to="." method="_on_start_ui_tree_exiting"]
-[connection signal="timeout" from="UI/StartUI/StartTimer" to="UI/StartUI" method="_on_start_timer_timeout"]
-[connection signal="pressed" from="UI/DeathUI/PlayAgain" to="UI/DeathUI" method="_on_play_again_pressed"]
-[connection signal="pressed" from="UI/Quit" to="UI/DeathUI" method="_on_quit_pressed"]
-[connection signal="pressed" from="UI/Continue" to="." method="_on_continue_pressed"]
+[connection signal="timeout" from="UI/StartUI/StartTimer" to="UI" method="_on_start_timer_timeout"]
+[connection signal="pressed" from="UI/Buttons/PlayAgain" to="UI" method="_on_play_again_pressed"]
+[connection signal="pressed" from="UI/Buttons/Quit" to="UI" method="_on_quit_pressed"]
+[connection signal="pressed" from="UI/Buttons/Continue" to="." method="_on_continue_pressed"]
 [connection signal="child_exiting_tree" from="PlayerManager" to="." method="_on_player_manager_child_exiting_tree"]
 [connection signal="player_boosting" from="PlayerManager" to="." method="_on_boosting"]
-[connection signal="player_killed" from="PlayerManager" to="UI/DeathUI" method="_on_player_manager_player_killed"]
-[connection signal="player_killed" from="PlayerManager" to="EndCycleTimer" method="_on_player_manager_player_killed"]
-[connection signal="player_spawn" from="PlayerManager" to="UI/StartUI" method="_on_player_spawn"]
+[connection signal="player_killed" from="PlayerManager" to="UI" method="_on_player_killed"]
+[connection signal="player_killed" from="PlayerManager" to="UI/EndCycleTimer" method="_on_player_manager_player_killed"]
+[connection signal="player_spawn" from="PlayerManager" to="UI" method="_on_player_spawn"]
 [connection signal="coin_collected" from="CoinManager" to="." method="_on_coin_collected"]
 [connection signal="timeout" from="CoinManager/CoinTimer" to="CoinManager" method="_on_coin_timer_timeout"]
 [connection signal="timeout" from="CoinManager/CoinTimer/StartDelay" to="CoinManager/CoinTimer" method="_on_one_shot_timeout"]
 [connection signal="timeout" from="ObstacleManager/ObstaclesTimer" to="ObstacleManager" method="_on_obstacles_timer_timeout"]
 [connection signal="timeout" from="ObstacleManager/ObstaclesTimer/StartDelay" to="ObstacleManager/ObstaclesTimer" method="_on_one_shot_timeout"]
 [connection signal="body_entered" from="KillZone/Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="timeout" from="EndCycleTimer" to="." method="_on_end_cycle_timer_timeout"]
-[connection signal="timeout" from="EndCycleTimer/Iterator" to="UI/DeathUI" method="_on_iterator_timeout"]

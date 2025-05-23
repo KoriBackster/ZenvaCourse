@@ -3,8 +3,6 @@ extends Node
 #region External Signals
 ## Buttons/Signal
 
-
-
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		PlayerManager._F__kill_player()
@@ -56,9 +54,7 @@ func _process(delta: float) -> void:
 ## Sub-Scripts:
 		
 
-func _S__move_scene(delta):
-	if !is_alive:
-		dynamic_objects_speed = lerp(dynamic_objects_speed, 0.00, .01)
+func _S__move_scene(delta):	
 	
 	for dynamic_object in get_tree().get_nodes_in_group("DynamicObjects"):
 		dynamic_object.position.x -= delta * dynamic_objects_speed
@@ -133,6 +129,7 @@ func _on_player_manager_child_exiting_tree(node: Node) -> void:
 
 
 func _on_coin_collected() -> void:
+	$CoinManager/CoinCollectAudio.playing = true
 	health += 10.0
 	if health > 100.0:
 		health = 100.0
@@ -171,5 +168,5 @@ func _on_start_ui_tree_exiting() -> void:
 	game_running = true
 
 
-func _on_start_ui_start_game() -> void:
+func _on_ui_start_game() -> void:
 	$PlayerManager._F__enable_gravity()
