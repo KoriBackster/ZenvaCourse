@@ -112,7 +112,7 @@ func _S__score_update(delta):                           # /* Is Called in "_Proc
 ##endregion
 var health_decrease_buffer := health_decrease_speed
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	
 	if boosting:
 		health_decrease_speed = health_decrease_buffer * 2
@@ -123,7 +123,7 @@ func _physics_process(delta: float) -> void:
 		return
 
 
-func _on_player_manager_child_exiting_tree(node: Node) -> void:
+func _on_player_manager_child_exiting_tree(_node: Node) -> void:
 	is_alive = false
 	return
 
@@ -146,10 +146,10 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("Pause"):
 		get_tree().paused = !get_tree().paused
 		
-		$UI/Continue.disabled = !get_tree().paused
-		$UI/Continue.visible = get_tree().paused
-		$UI/Quit.disabled = !get_tree().paused
-		$UI/Quit.visible = get_tree().paused
+		$UI/Buttons/Continue.disabled = !get_tree().paused
+		$UI/Buttons/Continue.visible = get_tree().paused
+		$UI/Buttons/Quit.disabled = !get_tree().paused
+		$UI/Buttons/Quit.visible = get_tree().paused
 		return
 
 	
@@ -157,10 +157,10 @@ func _input(event: InputEvent) -> void:
 
 func _on_continue_pressed() -> void:
 	get_tree().paused = false
-	$UI/Continue.disabled = true
-	$UI/Continue.visible = false
-	$UI/Quit.disabled = true
-	$UI/Quit.visible = false
+	$UI/Buttons/Continue.disabled = true
+	$UI/Buttons/Continue.visible = false
+	$UI/Buttons/Quit.disabled = true
+	$UI/Buttons/Quit.visible = false
 	return
 
 

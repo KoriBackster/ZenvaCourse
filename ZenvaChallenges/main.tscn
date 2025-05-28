@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://nphnapho8qhg"]
+
+[ext_resource type="Script" uid="uid://dp7pixb3jbge1" path="res://ZenvaChallenges/5. Walking Sim/Scripts/Global/game_state_manager.gd" id="1_gythi"]
+[ext_resource type="Script" uid="uid://djapm4fgmxuoa" path="res://ZenvaChallenges/main.gd" id="1_o3425"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_o3425")
+
+[node name="GameStateManager" type="Node" parent="."]
+process_mode = 3
+script = ExtResource("1_gythi")
+
+[node name="3D Game" type="Node3D" parent="."]
+
+[node name="2D Game" type="Node2D" parent="."]
+
+[connection signal="change_scene" from="GameStateManager" to="." method="_on_game_state_manager_change_scene"]

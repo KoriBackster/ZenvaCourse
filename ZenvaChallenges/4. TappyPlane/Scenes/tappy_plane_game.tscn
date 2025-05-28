@@ -334,7 +334,6 @@ normal = Vector2(0, 1)
 [node name="Main" type="Node"]
 script = ExtResource("1_s1fyu")
 dynamic_objects_speed = 400.0
-TEST_MODE = true
 metadata/_edit_vertical_guides_ = [-803.0]
 
 [node name="UI" type="Control" parent="."]

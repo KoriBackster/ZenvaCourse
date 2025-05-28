@@ -1,10 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://dn02uriewiywc"]
+[gd_scene load_steps=9 format=3 uid="uid://dn02uriewiywc"]
 
-[ext_resource type="Script" uid="uid://0yg1tld7r6e8" path="res://ZenvaChallenges/5. Walking Sim/Scripts/3D_PlayerController.gd" id="1_5k4tw"]
+[ext_resource type="Script" uid="uid://0yg1tld7r6e8" path="res://ZenvaChallenges/5. Walking Sim/Scripts/Player/3D_PlayerController.gd" id="1_5k4tw"]
+[ext_resource type="Script" uid="uid://c70fraovo04c2" path="res://ZenvaChallenges/5. Walking Sim/Scripts/Player/InteractionController.gd" id="2_2s3vy"]
+[ext_resource type="Texture2D" uid="uid://d1lnwnuj5hu04" path="res://ZenvaChallenges/4. TappyPlane/Assets-TappyPlane/Circle.png" id="3_8s1cr"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_m1btv"]
 radius = 0.307388
 height = 1.8
+
+[sub_resource type="LabelSettings" id="LabelSettings_5k4tw"]
+font_size = 26
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_2s3vy"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_5k4tw"]
+radius = 0.3
+height = 1.8
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_5k4tw"]
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_5k4tw")
@@ -18,4 +31,43 @@ metadata/_edit_group_ = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 metadata/_edit_group_ = true
 
-[node name="Camera3D" type="Camera3D" parent="Head"]
+[node name="Camera" type="Camera3D" parent="Head"]
+
+[node name="InteractionRay" type="RayCast3D" parent="Head/Camera"]
+target_position = Vector3(0, 0, -2)
+collision_mask = 3
+script = ExtResource("2_2s3vy")
+
+[node name="Sprite2D" type="Sprite2D" parent="Head/Camera/InteractionRay"]
+position = Vector2(800, 480)
+texture = ExtResource("3_8s1cr")
+
+[node name="InteractionPrompt" type="Label" parent="Head/Camera/InteractionRay"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -270.5
+offset_top = -128.5
+offset_right = 270.5
+offset_bottom = 128.5
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_5k4tw")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="SpringArm" type="SpringArm3D" parent="Head"]
+transform = Transform3D(0.891007, 0, -0.453991, 0, 1, 0, 0.453991, 0, 0.891007, -0.5, 0, 0)
+shape = SubResource("SphereShape3D_2s3vy")
+spring_length = 1.7
+
+[node name="Body" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+mesh = SubResource("CapsuleMesh_5k4tw")
+
+[node name="Face" type="MeshInstance3D" parent="Body"]
+transform = Transform3D(3.39957e-16, -7.64704e-09, 0.546623, -0.177924, -7.64706e-09, 0, 7.77732e-09, -0.174944, -2.38936e-08, -1.36619e-08, 0.4, -0.312547)
+visibility_range_begin = 1.0
+mesh = SubResource("CylinderMesh_5k4tw")

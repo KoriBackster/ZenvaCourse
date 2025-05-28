@@ -12,14 +12,10 @@ config_version=5
 
 config/name="Zenva"
 config/tags=PackedStringArray("practice")
-run/main_scene="uid://bvlhm8qco4n72"
+run/main_scene="uid://nphnapho8qhg"
 config/features=PackedStringArray("4.4", "Forward Plus")
 run/max_fps=60
 config/icon="res://ZenvaChallenges/1. Intro to Godot/Intro to Godot - Assets/Sprites/Player.png"
-
-[autoload]
-
-MainSceneToggle="*res://Assets/Scripts/main_scene_toggle.gd"
 
 [display]
 
@@ -32,6 +28,12 @@ window/vsync/vsync_mode=0
 [editor]
 
 naming/node_name_num_separator=3
+
+[file_customization]
+
+folder_colors={
+"res://ZenvaChallenges/4. TappyPlane/": "red"
+}
 
 [global_group]
 
