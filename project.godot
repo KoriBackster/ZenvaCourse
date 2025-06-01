@@ -12,15 +12,15 @@ config_version=5
 
 config/name="Zenva"
 config/tags=PackedStringArray("practice")
-run/main_scene="uid://nphnapho8qhg"
+run/main_scene="uid://clvocmhmjm062"
 config/features=PackedStringArray("4.4", "Forward Plus")
 run/max_fps=60
 config/icon="res://ZenvaChallenges/1. Intro to Godot/Intro to Godot - Assets/Sprites/Player.png"
 
 [display]
 
-window/size/viewport_width=1600
-window/size/viewport_height=960
+window/size/viewport_width=1440
+window/size/viewport_height=810
 window/size/initial_position_type=3
 window/stretch/mode="canvas_items"
 window/vsync/vsync_mode=0
@@ -101,3 +101,8 @@ Pause={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+environment/ssao/quality=4
+environment/ssil/quality=4
+environment/screen_space_reflection/roughness_quality=3
+environment/subsurface_scattering/subsurface_scattering_quality=3
+environment/defaults/default_clear_color=Color(0.516087, 0.206136, 0.145177, 1)

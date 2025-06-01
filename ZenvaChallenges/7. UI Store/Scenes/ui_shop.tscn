@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://clvocmhmjm062"]
+
+[ext_resource type="Texture2D" uid="uid://cfxf1457rymrv" path="res://ZenvaChallenges/7. UI Store/Assets Godot In-Game Shop/Players/Pink.png" id="1_r5ba1"]
+[ext_resource type="Script" uid="uid://c7hy5pd10ev5d" path="res://ZenvaChallenges/7. UI Store/Scripts/player.gd" id="2_w2il1"]
+
+[node name="UI-SHOP" type="Node"]
+
+[node name="Player" type="Sprite2D" parent="."]
+position = Vector2(720, 405)
+texture = ExtResource("1_r5ba1")
+script = ExtResource("2_w2il1")

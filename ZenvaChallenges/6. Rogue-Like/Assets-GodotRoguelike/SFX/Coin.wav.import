@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c7l0mv6d603ss"
+path="res://.godot/imported/Coin.wav-ed7b3a0d401d91c741382277960631cf.sample"
+
+[deps]
+
+source_file="res://ZenvaChallenges/6. Rogue-Like/Assets-GodotRoguelike/SFX/Coin.wav"
+dest_files=["res://.godot/imported/Coin.wav-ed7b3a0d401d91c741382277960631cf.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
