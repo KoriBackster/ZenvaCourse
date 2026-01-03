@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dn02uriewiywc"]
+[gd_scene load_steps=8 format=3 uid="uid://dn02uriewiywc"]
 
 [ext_resource type="Script" uid="uid://0yg1tld7r6e8" path="res://ZenvaChallenges/5. Walking Sim/Scripts/Player/3D_PlayerController.gd" id="1_5k4tw"]
 [ext_resource type="Script" uid="uid://c70fraovo04c2" path="res://ZenvaChallenges/5. Walking Sim/Scripts/Player/InteractionController.gd" id="2_2s3vy"]
@@ -10,8 +10,6 @@ height = 1.8
 
 [sub_resource type="LabelSettings" id="LabelSettings_5k4tw"]
 font_size = 26
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_2s3vy"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_5k4tw"]
 radius = 0.3
@@ -57,11 +55,6 @@ grow_vertical = 2
 label_settings = SubResource("LabelSettings_5k4tw")
 horizontal_alignment = 1
 vertical_alignment = 2
-
-[node name="SpringArm" type="SpringArm3D" parent="Head"]
-transform = Transform3D(0.891007, 0, -0.453991, 0, 1, 0, 0.453991, 0, 0.891007, -0.5, 0, 0)
-shape = SubResource("SphereShape3D_2s3vy")
-spring_length = 1.7
 
 [node name="Body" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)

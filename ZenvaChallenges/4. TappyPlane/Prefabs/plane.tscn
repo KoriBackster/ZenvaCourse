@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dymwm84xk25c1"]
+
+[ext_resource type="Texture2D" uid="uid://cs116vjtesx2p" path="res://ZenvaChallenges/4. TappyPlane/Assets-TappyPlane/Player.png" id="1_e5lj0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0i1y7"]
+radius = 33.0606
+
+[node name="Plane" type="RigidBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("1_e5lj0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_0i1y7")

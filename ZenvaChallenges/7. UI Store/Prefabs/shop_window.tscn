@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8mr3un8nh4d4"]
+
+[ext_resource type="Script" uid="uid://2fyi3q88p5gr" path="res://ZenvaChallenges/7. UI Store/Scripts/shop_window.gd" id="1_ghg8c"]
+
+[node name="ShopWindow" type="Window"]
+auto_translate_mode = 1
+initial_position = 1
+size = Vector2i(450, 700)
+script = ExtResource("1_ghg8c")
+
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]

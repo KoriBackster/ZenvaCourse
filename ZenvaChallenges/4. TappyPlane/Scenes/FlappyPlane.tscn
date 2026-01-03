@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://detdc6w0kchuy"]
+
+[ext_resource type="Texture2D" uid="uid://7pvucfpagnyy" path="res://ZenvaChallenges/4. TappyPlane/Assets-TappyPlane/Background.png" id="1_5xd1s"]
+[ext_resource type="Script" uid="uid://dajqyv0emt262" path="res://ZenvaChallenges/4. TappyPlane/Scenes/background.gd" id="1_a0na6"]
+[ext_resource type="PackedScene" uid="uid://dymwm84xk25c1" path="res://ZenvaChallenges/4. TappyPlane/Prefabs/plane.tscn" id="3_q8s8r"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_q8s8r"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0i1y7"]
+normal = Vector2(0, 1)
+
+[node name="FlappyPlane" type="Node2D"]
+
+[node name="Background" type="Node2D" parent="."]
+scale = Vector2(2, 2)
+script = ExtResource("1_a0na6")
+metadata/_edit_group_ = true
+
+[node name="BackgroundPanel" type="Sprite2D" parent="Background"]
+texture = ExtResource("1_5xd1s")
+offset = Vector2(400, 240)
+
+[node name="BackgroundPanel-2" type="Sprite2D" parent="Background"]
+position = Vector2(800, 0)
+texture = ExtResource("1_5xd1s")
+offset = Vector2(400, 240)
+
+[node name="FloorCollider" type="StaticBody2D" parent="."]
+position = Vector2(0, 612)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FloorCollider"]
+shape = SubResource("WorldBoundaryShape2D_q8s8r")
+
+[node name="Ceiling" type="StaticBody2D" parent="."]
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ceiling"]
+shape = SubResource("WorldBoundaryShape2D_0i1y7")
+
+[node name="Plane" parent="." instance=ExtResource("3_q8s8r")]
+position = Vector2(250, 420)

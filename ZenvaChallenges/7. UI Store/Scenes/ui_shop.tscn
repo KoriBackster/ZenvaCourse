@@ -1,11 +1,26 @@
-[gd_scene load_steps=3 format=3 uid="uid://clvocmhmjm062"]
+[gd_scene load_steps=4 format=3 uid="uid://clvocmhmjm062"]
 
 [ext_resource type="Texture2D" uid="uid://cfxf1457rymrv" path="res://ZenvaChallenges/7. UI Store/Assets Godot In-Game Shop/Players/Pink.png" id="1_r5ba1"]
 [ext_resource type="Script" uid="uid://c7hy5pd10ev5d" path="res://ZenvaChallenges/7. UI Store/Scripts/player.gd" id="2_w2il1"]
+[ext_resource type="Script" uid="uid://d3f6u40dr3upw" path="res://ZenvaChallenges/7. UI Store/Scripts/shop_button.gd" id="3_rjolu"]
 
 [node name="UI-SHOP" type="Node"]
 
 [node name="Player" type="Sprite2D" parent="."]
-position = Vector2(720, 405)
+position = Vector2(281, 512)
 texture = ExtResource("1_r5ba1")
 script = ExtResource("2_w2il1")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ShopButton" type="Button" parent="UI"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("3_rjolu")
+
+[connection signal="pressed" from="UI/ShopButton" to="UI/ShopButton" method="_on_pressed"]
